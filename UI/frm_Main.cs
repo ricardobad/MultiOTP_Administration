@@ -31,7 +31,7 @@ namespace UI
 
         private void frm_Main_Load(object sender, EventArgs e)
         {
-
+            MaximizeBox = false;
             inHabilitaOpciones();
 
 
@@ -41,6 +41,14 @@ namespace UI
         private void btn_Sincronizar_Click(object sender, EventArgs e)
         {
             BLL_Obj.sincronizarAD(ref DAL_Obj);
+            if (DAL_Obj.sMsjErr == string.Empty)
+            {
+                BLL_Obj.mostrarLog(ref DAL_Obj);
+            }
+            else {
+                MessageBox.Show("Advertencia ","Error \n "+ DAL_Obj.sMsjErr);
+            }
+
         }
 
         private void btn_Aplicar_Click(object sender, EventArgs e)

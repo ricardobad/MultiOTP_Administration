@@ -143,41 +143,57 @@ namespace BLL_MultiOTP_Adm
 
 
         public void sincronizarAD(ref cls_parametros_DAL DAL_OBJ) {
-            string rutaRaiz;
-            // Iniciar el proceso CMD
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.RedirectStandardInput = true;
-            psi.RedirectStandardOutput = true;
-            psi.CreateNoWindow = false;
-            psi.UseShellExecute = false;
-
-            Process proceso = new Process();
-            proceso.StartInfo = psi;
-            proceso.OutputDataReceived += (sender, e) => Console.WriteLine(e.Data); // Mostrar la salida en tiempo real
-
-            proceso.Start();
-
-            // Ejecutar el comando "cd C:\multiotp"
-            rutaRaiz = Path.GetDirectoryName(DAL_OBJ.sFilePath);
-
-            proceso.StandardInput.WriteLine("cd ");
-            proceso.StandardInput.WriteLine("echo Comando ejecutado: cd "+rutaRaiz);
-            proceso.StandardInput.WriteLine("echo.");
-
-            // Ejecutar el comando "multiotp.exe"
-            proceso.StandardInput.WriteLine("multiotp.exe");
-            proceso.StandardInput.WriteLine("echo Comando ejecutado: multiotp.exe");
-            proceso.StandardInput.WriteLine("echo.");
-
-            // Salir del CMD
-            proceso.StandardInput.WriteLine("exit");
-
-            proceso.BeginOutputReadLine(); // Iniciar la lectura de la salida en tiempo real
            
+            try {
+              
+                Process cmdProcess = new Process();
 
-            Console.ReadLine();
+                // Configura las propiedades del proceso
+                cmdProcess.StartInfo.FileName = "cmd.exe";
+                cmdProcess.StartInfo.RedirectStandardInput = true;
+                cmdProcess.StartInfo.RedirectStandardOutput = true;
+                cmdProcess.StartInfo.CreateNoWindow = true;
+                cmdProcess.StartInfo.UseShellExecute = false;
+
+                // Inicia el proceso
+                cmdProcess.Start();
+
+                // Envía el comando al símbolo del sistema
+                cmdProcess.StandardInput.WriteLine("start \"Syncronizacion\"  \"C:\\multiotp\\multiotp.exe\" -debug -display-log -ldap-users-sync");
+                cmdProcess.StandardInput.Flush();
+                cmdProcess.StandardInput.Close();
+
+                // Espera a que finalice el proceso
+                cmdProcess.WaitForExit();
+
+                // Lee la salida del símbolo del sistema
+                string output = cmdProcess.StandardOutput.ReadToEnd();
+                Console.WriteLine(output);
+                DAL_OBJ.sMsjErr = "";
+            }
+            catch (Exception ex) {
+
+                DAL_OBJ.sMsjErr = ex.Message;
+            }
+
+           
         }
+
+        public void mostrarLog(ref cls_parametros_DAL DAL) {
+            try
+            {
+                // Abre el archivo de texto 
+                Process.Start("C:\\multiotp\\log\\multiotp.log");
+
+            }
+            catch (Exception ex)
+            {
+                DAL.sMsjErr= "Favor verifique que exista la carpeta Log en su sistema y ya haya realizado la" +
+                    "configuracion de LDAP" + ex.Message;
+            }
+        
+
+    }
   
     }
 }
