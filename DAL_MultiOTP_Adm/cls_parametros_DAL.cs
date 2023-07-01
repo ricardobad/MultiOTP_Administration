@@ -11,7 +11,7 @@ namespace DAL_MultiOTP_Adm
         #region Globales
 
         private string _sCN_User, _sCN_Group, _sAttributGroup, _sPortNum, _sDomain, _sIPDomain, _sBaseDN,
-            _sDomainUser, _sPassword, _sFilter, _sSecret, _sSync, _sProtoc, _sFilePath, _sMsjErr, _sConfigPath;
+            _sDomainUser, _sPassword, _sFilter, _sSecret, _sSync, _sProtoc, _sFilePath, _sMsjErr, _sConfigPath, _sMsjAviso;
 
 
         private byte _bTimeout, _bTimeTransact;
@@ -48,6 +48,7 @@ namespace DAL_MultiOTP_Adm
         public string sFilePath { get => _sFilePath; set => _sFilePath = value; }
         public string sMsjErr { get => _sMsjErr; set => _sMsjErr = value; }
         public string sConfigPath { get => _sConfigPath; set => _sConfigPath = value; }
+        public string sMsjAviso { get => _sMsjAviso; set => _sMsjAviso = value; }
 
         #endregion
 

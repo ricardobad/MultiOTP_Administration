@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DAL_MultiOTP_Adm;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using Microsoft.Win32.TaskScheduler;
 
 namespace BLL_MultiOTP_Adm
 {
@@ -194,6 +195,45 @@ namespace BLL_MultiOTP_Adm
         
 
     }
+
+        public void crearTarea(ref cls_parametros_DAL DAL) {
+            // Crear una instancia de la clase TaskService
+            
+
+                try { using (TaskService taskService = new TaskService())
+                {
+                    // Crear una nueva tarea
+                    TaskDefinition taskDefinition = taskService.NewTask();
+
+                    // Establecer el nombre de la tarea
+                    taskDefinition.RegistrationInfo.Description = "Sincronizar usuarios de LDAP cada 12 horas";
+
+                    // Establecer la acción para ejecutar el archivo por lotes
+                    string batFilePath = @"C:\\multiotp\\sync.bat"; // Ruta completa del archivo .bat
+                    taskDefinition.Actions.Add(new ExecAction(batFilePath, null, null));
+
+                    // Establecer la programación para ejecutar la tarea cada 12 horas
+                    Trigger trigger = new DailyTrigger { DaysInterval = 1, StartBoundary = DateTime.Now, RandomDelay = TimeSpan.FromHours(1) };
+                    trigger.Repetition.Duration = TimeSpan.FromHours(12);
+                    taskDefinition.Triggers.Add(trigger);
+
+                    // Registrar la tarea en el programador de tareas de Windows
+                    taskService.RootFolder.RegisterTaskDefinition("Sincronizar_usuarios_LDAP", taskDefinition);
+
+                    DAL.sMsjAviso = "Tarea creada correctamente, por favor verifique el programador de tareas";
+                    // Console.WriteLine("Tarea programada creada correctamente.");
+                    //  Console.ReadLine();
+                }
+            
+                        
+                        }
+                catch (Exception ex) {
+                DAL.sMsjAviso = ex.Message;
+            
+            }
+            
+
+        }
   
     }
 }

@@ -89,6 +89,7 @@ namespace UI
             this.txt_CuentaCN = new System.Windows.Forms.TextBox();
             this.lbl_Identificador = new System.Windows.Forms.Label();
             this.tT_Message = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_Tarea = new System.Windows.Forms.Button();
             this.gpB_Menu.SuspendLayout();
             this.gpB_Elegir_Arch.SuspendLayout();
             this.gp_TipoAD.SuspendLayout();
@@ -105,6 +106,7 @@ namespace UI
             // 
             // gpB_Menu
             // 
+            this.gpB_Menu.Controls.Add(this.btn_Tarea);
             this.gpB_Menu.Controls.Add(this.gpB_Elegir_Arch);
             this.gpB_Menu.Controls.Add(this.btn_Mostrar);
             this.gpB_Menu.Controls.Add(this.cmb_Protocolo);
@@ -519,7 +521,7 @@ namespace UI
             // 
             // btn_Aplicar
             // 
-            this.btn_Aplicar.Location = new System.Drawing.Point(726, 483);
+            this.btn_Aplicar.Location = new System.Drawing.Point(745, 483);
             this.btn_Aplicar.Name = "btn_Aplicar";
             this.btn_Aplicar.Size = new System.Drawing.Size(165, 56);
             this.btn_Aplicar.TabIndex = 38;
@@ -722,6 +724,16 @@ namespace UI
             this.lbl_Identificador.TabIndex = 9;
             this.lbl_Identificador.Text = "Identificador Cuenta CN =";
             // 
+            // btn_Tarea
+            // 
+            this.btn_Tarea.Location = new System.Drawing.Point(576, 483);
+            this.btn_Tarea.Name = "btn_Tarea";
+            this.btn_Tarea.Size = new System.Drawing.Size(121, 56);
+            this.btn_Tarea.TabIndex = 57;
+            this.btn_Tarea.Text = "Crear tarea Sincronizacion";
+            this.btn_Tarea.UseVisualStyleBackColor = true;
+            this.btn_Tarea.Click += new System.EventHandler(this.btn_Tarea_Click);
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -819,5 +831,6 @@ namespace UI
         private System.Windows.Forms.Button btn_Elegir_Archivo;
         private System.Windows.Forms.Label lbl_File;
         private System.Windows.Forms.GroupBox gpB_Elegir_Arch;
+        private System.Windows.Forms.Button btn_Tarea;
     }
 }

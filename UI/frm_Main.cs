@@ -416,9 +416,15 @@ namespace UI
         }
 
 
+
         #endregion
 
+        private void btn_Tarea_Click(object sender, EventArgs e)
+        {
+            BLL_Obj.crearTarea(ref DAL_Obj);
+            MessageBox.Show(DAL_Obj.sMsjAviso);
 
+        }
     } 
 }
     
