@@ -101,8 +101,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\apply.png" />
     <Content Include="images\eye.png" />
+    <Content Include="images\eye_pass.png" />
+    <Content Include="images\load.png" />
     <Content Include="images\multiotp.ico" />
+    <Content Include="images\task.ico" />
+    <Content Include="images\task.png" />
     <Content Include="images\Update.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

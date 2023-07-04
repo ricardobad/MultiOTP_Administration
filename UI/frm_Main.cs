@@ -24,7 +24,6 @@ namespace UI
         #region Globales
         cls_parametros_DAL DAL_Obj = new cls_parametros_DAL();
         cls_parametros_BLL BLL_Obj = new cls_parametros_BLL();
-
         #endregion
 
         #region Eventos
@@ -92,12 +91,26 @@ namespace UI
 
 
         }
+        private void btn_Tarea_Click(object sender, EventArgs e)
+        {
+            BLL_Obj.crearTarea(ref DAL_Obj);
+            MessageBox.Show(DAL_Obj.sMsjAviso);
 
-            #endregion
+        }
 
-            #region Validaciones
+        private void btn_cargarConfig_Click(object sender, EventArgs e)
+        {
+            DAL_Obj.sFilePath = btn_Elegir_Archivo.Text.Trim();
+            BLL_Obj.cargarConfigActual(ref DAL_Obj);
+            this.cargarConfig(ref DAL_Obj);
+            MessageBox.Show(DAL_Obj.sMsjErr);
+        }
 
-            private void gpB_PIN_Pass_MouseHover(object sender, EventArgs e)
+        #endregion
+
+        #region Validaciones
+
+        private void gpB_PIN_Pass_MouseHover(object sender, EventArgs e)
             {
                 tT_Message.Show("Los usuarios deben escribir el pin en vez de la clave de LDAP", gpB_PIN_Pass);
             }
@@ -144,10 +157,6 @@ namespace UI
                 tT_Message.Show("Aplica la configuracion definida en el sistema", btn_Aplicar);
             }
 
-            private void btn_Mostrar_MouseHover(object sender, EventArgs e)
-            {
-                txt_Contrasena.PasswordChar = '\0';
-            }
 
             private void lbl_Puerto_LDAP_MouseHover(object sender, EventArgs e)
             {
@@ -159,7 +168,12 @@ namespace UI
                 tT_Message.Show("La cuenta CN no puede contener espacios", lbl_Dir_Adm_Dominio);
             }
 
-            private void btn_Mostrar_MouseLeave(object sender, EventArgs e)
+            private void pB_Pass_MouseHover(object sender, EventArgs e)
+            {
+                txt_Contrasena.PasswordChar = '\0';
+            }
+
+            private void pB_Pass_MouseLeave(object sender, EventArgs e)
             {
                 txt_Contrasena.PasswordChar = '*';
             }
@@ -297,11 +311,13 @@ namespace UI
             txt_Dir_Base_DN.Enabled = false;
             txt_Dir_Admin_Dominio.Enabled = false;
             txt_Contrasena.Enabled = false;
-            btn_Mostrar.Enabled = false;
+            pB_Pass.Enabled = false;
             txt_Filtro_Grupo.Enabled = false;
             txt_Secreto.Enabled = false;
             btn_Sincronizar.Enabled = false;
             btn_Aplicar.Enabled = false;
+            btn_Tarea.Enabled = false;
+            btn_cargarConfig.Enabled = false;
 
 
         }
@@ -327,11 +343,13 @@ namespace UI
             txt_Dir_Base_DN.Enabled = !false;
             txt_Dir_Admin_Dominio.Enabled = !false;
             txt_Contrasena.Enabled = !false;
-            btn_Mostrar.Enabled = !false;
+            pB_Pass.Enabled = !false;
             txt_Filtro_Grupo.Enabled = !false;
             txt_Secreto.Enabled = !false;
             btn_Sincronizar.Enabled = !false;
             btn_Aplicar.Enabled = !false;
+            btn_Tarea.Enabled = !false;
+            btn_cargarConfig.Enabled = !false;
 
 
         }
@@ -416,15 +434,82 @@ namespace UI
         }
 
 
+        private void cargarConfig(ref cls_parametros_DAL DAL) {
+            DAL_Obj.sFilePath = btn_Elegir_Archivo.Text.Trim();
+            //radiobuttons
+            if (DAL.cLDAP_Type==1)
+            {
 
-        #endregion
+                rb_Active_DIrectoy.Checked = true;
+            }
+            else
+            {
+                rb_OPEN_LDAP.Checked = true;
+            }
 
-        private void btn_Tarea_Click(object sender, EventArgs e)
-        {
-            BLL_Obj.crearTarea(ref DAL_Obj);
-            MessageBox.Show(DAL_Obj.sMsjAviso);
+            //SSL
+            if (DAL.cSSL_Enable ==1)
+            {
+
+                rb_SSL_SI.Checked = true;
+            }
+            else
+            {
+                rb_SSL_NO.Checked = true;
+            }
+            //PPIN o PASS
+            if (DAL.cLDAP_Pass == 1)
+            {
+                rb_Pass_PIN_SI.Checked = true;
+            }
+            else
+            {
+                rb_Pass_PIN_NO.Checked = true;
+            }
+            //ConexionLDAP
+            if (DAL.cLDAP_Support == 1)
+            {
+
+                rb_LDAP_Support_SI.Checked = true;
+            }
+            else
+            {
+                rb_LDAP_Support_NO.Checked = false;
+            }
+            //prefijo pin
+            if (DAL.cPrefixPIN == 1)
+            {
+
+                rb_Prefijo_SI.Checked = true;
+            }
+            else
+            {
+                rb_Prefijo_NO.Checked = true;
+            }
+            //timeout LDAP
+            nUD_Timeout_LDAP.Value = DAL.bTimeout;
+            //timeout server auth
+            nUD_Transact.Value = DAL.bTimeTransact;
+            //txts
+            txt_CuentaCN.Text = DAL.sCN_User ;
+            txt_IdentificadorGrupo.Text = DAL.sCN_Group;
+            txt_Atributo_Grupo.Text = DAL.sAttributGroup;
+            txt_PuertoLDAP.Text= DAL.sPortNum;
+            txt_Nombre_Dominio.Text= DAL.sDomain ;
+            cmb_Protocolo.Text = DAL.sProtoc;
+            txt_IP_Dominio.Text = DAL.sIPDomain;
+            txt_Dir_Base_DN.Text = DAL.sBaseDN;
+            txt_Dir_Admin_Dominio.Text = DAL.sDomainUser;
+            txt_Contrasena.Text = DAL.sPassword;
+            txt_Filtro_Grupo.Text = DAL.sFilter;
+            txt_Secreto.Text = DAL.sSecret;
 
         }
+        #endregion
+
+      
+
+      
     } 
 }
     

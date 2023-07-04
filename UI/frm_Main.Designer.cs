@@ -32,10 +32,10 @@ namespace UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.gpB_Menu = new System.Windows.Forms.GroupBox();
+            this.btn_Tarea = new System.Windows.Forms.Button();
             this.gpB_Elegir_Arch = new System.Windows.Forms.GroupBox();
             this.btn_Elegir_Archivo = new System.Windows.Forms.Button();
             this.lbl_File = new System.Windows.Forms.Label();
-            this.btn_Mostrar = new System.Windows.Forms.Button();
             this.cmb_Protocolo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gp_TipoAD = new System.Windows.Forms.GroupBox();
@@ -89,7 +89,13 @@ namespace UI
             this.txt_CuentaCN = new System.Windows.Forms.TextBox();
             this.lbl_Identificador = new System.Windows.Forms.Label();
             this.tT_Message = new System.Windows.Forms.ToolTip(this.components);
-            this.btn_Tarea = new System.Windows.Forms.Button();
+            this.btn_cargarConfig = new System.Windows.Forms.Button();
+            this.gpB_Sincronizacion = new System.Windows.Forms.GroupBox();
+            this.pB_Pass = new System.Windows.Forms.PictureBox();
+            this.pb_Task = new System.Windows.Forms.PictureBox();
+            this.gpB_Datos = new System.Windows.Forms.GroupBox();
+            this.pb_Apply = new System.Windows.Forms.PictureBox();
+            this.pb_Load = new System.Windows.Forms.PictureBox();
             this.gpB_Menu.SuspendLayout();
             this.gpB_Elegir_Arch.SuspendLayout();
             this.gp_TipoAD.SuspendLayout();
@@ -102,13 +108,20 @@ namespace UI
             this.gpB_PIN_Pass.SuspendLayout();
             this.gpB_Prefijo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Sync)).BeginInit();
+            this.gpB_Sincronizacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Pass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Task)).BeginInit();
+            this.gpB_Datos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).BeginInit();
             this.SuspendLayout();
             // 
             // gpB_Menu
             // 
-            this.gpB_Menu.Controls.Add(this.btn_Tarea);
+            this.gpB_Menu.Controls.Add(this.gpB_Datos);
+            this.gpB_Menu.Controls.Add(this.pB_Pass);
+            this.gpB_Menu.Controls.Add(this.gpB_Sincronizacion);
             this.gpB_Menu.Controls.Add(this.gpB_Elegir_Arch);
-            this.gpB_Menu.Controls.Add(this.btn_Mostrar);
             this.gpB_Menu.Controls.Add(this.cmb_Protocolo);
             this.gpB_Menu.Controls.Add(this.label2);
             this.gpB_Menu.Controls.Add(this.gp_TipoAD);
@@ -118,9 +131,6 @@ namespace UI
             this.gpB_Menu.Controls.Add(this.gp_SSL);
             this.gpB_Menu.Controls.Add(this.gpB_PIN_Pass);
             this.gpB_Menu.Controls.Add(this.gpB_Prefijo);
-            this.gpB_Menu.Controls.Add(this.pB_Sync);
-            this.gpB_Menu.Controls.Add(this.btn_Sincronizar);
-            this.gpB_Menu.Controls.Add(this.btn_Aplicar);
             this.gpB_Menu.Controls.Add(this.txt_Secreto);
             this.gpB_Menu.Controls.Add(this.lbl_Clave_Secret);
             this.gpB_Menu.Controls.Add(this.txt_Filtro_Grupo);
@@ -142,12 +152,23 @@ namespace UI
             this.gpB_Menu.Controls.Add(this.lbl_IdentificadorGrupo);
             this.gpB_Menu.Controls.Add(this.txt_CuentaCN);
             this.gpB_Menu.Controls.Add(this.lbl_Identificador);
+            this.gpB_Menu.Font = new System.Drawing.Font("Microsoft New Tai Lue", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpB_Menu.Location = new System.Drawing.Point(24, 21);
             this.gpB_Menu.Name = "gpB_Menu";
-            this.gpB_Menu.Size = new System.Drawing.Size(916, 545);
+            this.gpB_Menu.Size = new System.Drawing.Size(1027, 599);
             this.gpB_Menu.TabIndex = 0;
             this.gpB_Menu.TabStop = false;
             this.gpB_Menu.Text = "Parametros Active Directory";
+            // 
+            // btn_Tarea
+            // 
+            this.btn_Tarea.Location = new System.Drawing.Point(274, 28);
+            this.btn_Tarea.Name = "btn_Tarea";
+            this.btn_Tarea.Size = new System.Drawing.Size(148, 56);
+            this.btn_Tarea.TabIndex = 57;
+            this.btn_Tarea.Text = "Crear tarea Sincronizacion";
+            this.btn_Tarea.UseVisualStyleBackColor = true;
+            this.btn_Tarea.Click += new System.EventHandler(this.btn_Tarea_Click);
             // 
             // gpB_Elegir_Arch
             // 
@@ -175,39 +196,28 @@ namespace UI
             this.lbl_File.AutoSize = true;
             this.lbl_File.Location = new System.Drawing.Point(6, 35);
             this.lbl_File.Name = "lbl_File";
-            this.lbl_File.Size = new System.Drawing.Size(194, 20);
+            this.lbl_File.Size = new System.Drawing.Size(191, 21);
             this.lbl_File.TabIndex = 54;
             this.lbl_File.Text = "Archivo Config MULTIOTP";
             // 
-            // btn_Mostrar
-            // 
-            this.btn_Mostrar.Location = new System.Drawing.Point(765, 372);
-            this.btn_Mostrar.Name = "btn_Mostrar";
-            this.btn_Mostrar.Size = new System.Drawing.Size(75, 33);
-            this.btn_Mostrar.TabIndex = 52;
-            this.btn_Mostrar.Text = "Mostrar";
-            this.btn_Mostrar.UseVisualStyleBackColor = true;
-            this.btn_Mostrar.MouseLeave += new System.EventHandler(this.btn_Mostrar_MouseLeave);
-            this.btn_Mostrar.MouseHover += new System.EventHandler(this.btn_Mostrar_MouseHover);
-            // 
             // cmb_Protocolo
             // 
+            this.cmb_Protocolo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Protocolo.FormattingEnabled = true;
             this.cmb_Protocolo.Items.AddRange(new object[] {
             "ldap://",
             "ldaps://"});
             this.cmb_Protocolo.Location = new System.Drawing.Point(516, 265);
             this.cmb_Protocolo.Name = "cmb_Protocolo";
-            this.cmb_Protocolo.Size = new System.Drawing.Size(89, 28);
+            this.cmb_Protocolo.Size = new System.Drawing.Size(89, 29);
             this.cmb_Protocolo.TabIndex = 51;
-            this.cmb_Protocolo.Text = "ldap://";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(316, 268);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.Size = new System.Drawing.Size(102, 21);
             this.label2.TabIndex = 50;
             this.label2.Text = "IP Dominio =";
             // 
@@ -229,16 +239,17 @@ namespace UI
             this.lbl_tipo_AD.AutoSize = true;
             this.lbl_tipo_AD.Location = new System.Drawing.Point(22, 22);
             this.lbl_tipo_AD.Name = "lbl_tipo_AD";
-            this.lbl_tipo_AD.Size = new System.Drawing.Size(85, 20);
+            this.lbl_tipo_AD.Size = new System.Drawing.Size(82, 21);
             this.lbl_tipo_AD.TabIndex = 6;
             this.lbl_tipo_AD.Text = "Tipo LDAP";
             // 
             // rb_Active_DIrectoy
             // 
             this.rb_Active_DIrectoy.AutoSize = true;
+            this.rb_Active_DIrectoy.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Active_DIrectoy.Location = new System.Drawing.Point(119, 20);
             this.rb_Active_DIrectoy.Name = "rb_Active_DIrectoy";
-            this.rb_Active_DIrectoy.Size = new System.Drawing.Size(144, 24);
+            this.rb_Active_DIrectoy.Size = new System.Drawing.Size(146, 25);
             this.rb_Active_DIrectoy.TabIndex = 7;
             this.rb_Active_DIrectoy.TabStop = true;
             this.rb_Active_DIrectoy.Text = "Active Directory";
@@ -249,7 +260,7 @@ namespace UI
             this.rb_OPEN_LDAP.AutoSize = true;
             this.rb_OPEN_LDAP.Location = new System.Drawing.Point(279, 20);
             this.rb_OPEN_LDAP.Name = "rb_OPEN_LDAP";
-            this.rb_OPEN_LDAP.Size = new System.Drawing.Size(124, 24);
+            this.rb_OPEN_LDAP.Size = new System.Drawing.Size(118, 25);
             this.rb_OPEN_LDAP.TabIndex = 8;
             this.rb_OPEN_LDAP.TabStop = true;
             this.rb_OPEN_LDAP.Text = "OPEN LDAP";
@@ -272,7 +283,7 @@ namespace UI
             this.lbl_Tiempo_Transact.AutoSize = true;
             this.lbl_Tiempo_Transact.Location = new System.Drawing.Point(-3, 28);
             this.lbl_Tiempo_Transact.Name = "lbl_Tiempo_Transact";
-            this.lbl_Tiempo_Transact.Size = new System.Drawing.Size(173, 20);
+            this.lbl_Tiempo_Transact.Size = new System.Drawing.Size(171, 21);
             this.lbl_Tiempo_Transact.TabIndex = 41;
             this.lbl_Tiempo_Transact.Text = "Limite Tiempo Transact";
             // 
@@ -280,7 +291,7 @@ namespace UI
             // 
             this.nUD_Transact.Location = new System.Drawing.Point(178, 23);
             this.nUD_Transact.Name = "nUD_Transact";
-            this.nUD_Transact.Size = new System.Drawing.Size(56, 26);
+            this.nUD_Transact.Size = new System.Drawing.Size(56, 28);
             this.nUD_Transact.TabIndex = 42;
             this.nUD_Transact.Value = new decimal(new int[] {
             30,
@@ -306,7 +317,7 @@ namespace UI
             this.lbl_LDAP_Support.AutoSize = true;
             this.lbl_LDAP_Support.Location = new System.Drawing.Point(0, 22);
             this.lbl_LDAP_Support.Name = "lbl_LDAP_Support";
-            this.lbl_LDAP_Support.Size = new System.Drawing.Size(112, 20);
+            this.lbl_LDAP_Support.Size = new System.Drawing.Size(107, 21);
             this.lbl_LDAP_Support.TabIndex = 33;
             this.lbl_LDAP_Support.Text = "Soporte LDAP";
             // 
@@ -315,7 +326,7 @@ namespace UI
             this.rb_LDAP_Support_SI.AutoSize = true;
             this.rb_LDAP_Support_SI.Location = new System.Drawing.Point(118, 18);
             this.rb_LDAP_Support_SI.Name = "rb_LDAP_Support_SI";
-            this.rb_LDAP_Support_SI.Size = new System.Drawing.Size(50, 24);
+            this.rb_LDAP_Support_SI.Size = new System.Drawing.Size(48, 25);
             this.rb_LDAP_Support_SI.TabIndex = 34;
             this.rb_LDAP_Support_SI.TabStop = true;
             this.rb_LDAP_Support_SI.Text = "SI";
@@ -326,7 +337,7 @@ namespace UI
             this.rb_LDAP_Support_NO.AutoSize = true;
             this.rb_LDAP_Support_NO.Location = new System.Drawing.Point(174, 18);
             this.rb_LDAP_Support_NO.Name = "rb_LDAP_Support_NO";
-            this.rb_LDAP_Support_NO.Size = new System.Drawing.Size(57, 24);
+            this.rb_LDAP_Support_NO.Size = new System.Drawing.Size(59, 25);
             this.rb_LDAP_Support_NO.TabIndex = 35;
             this.rb_LDAP_Support_NO.TabStop = true;
             this.rb_LDAP_Support_NO.Text = "NO";
@@ -349,7 +360,7 @@ namespace UI
             this.lbl_Timeout_LDAP.AutoSize = true;
             this.lbl_Timeout_LDAP.Location = new System.Drawing.Point(7, 22);
             this.lbl_Timeout_LDAP.Name = "lbl_Timeout_LDAP";
-            this.lbl_Timeout_LDAP.Size = new System.Drawing.Size(112, 20);
+            this.lbl_Timeout_LDAP.Size = new System.Drawing.Size(109, 21);
             this.lbl_Timeout_LDAP.TabIndex = 31;
             this.lbl_Timeout_LDAP.Text = "Timeout LDAP";
             // 
@@ -357,7 +368,7 @@ namespace UI
             // 
             this.nUD_Timeout_LDAP.Location = new System.Drawing.Point(149, 16);
             this.nUD_Timeout_LDAP.Name = "nUD_Timeout_LDAP";
-            this.nUD_Timeout_LDAP.Size = new System.Drawing.Size(56, 26);
+            this.nUD_Timeout_LDAP.Size = new System.Drawing.Size(56, 28);
             this.nUD_Timeout_LDAP.TabIndex = 32;
             this.nUD_Timeout_LDAP.Value = new decimal(new int[] {
             10,
@@ -383,7 +394,7 @@ namespace UI
             this.lbl_SSL.AutoSize = true;
             this.lbl_SSL.Location = new System.Drawing.Point(4, 22);
             this.lbl_SSL.Name = "lbl_SSL";
-            this.lbl_SSL.Size = new System.Drawing.Size(78, 20);
+            this.lbl_SSL.Size = new System.Drawing.Size(72, 21);
             this.lbl_SSL.TabIndex = 15;
             this.lbl_SSL.Text = "Usar SSL";
             // 
@@ -392,7 +403,7 @@ namespace UI
             this.rb_SSL_SI.AutoSize = true;
             this.rb_SSL_SI.Location = new System.Drawing.Point(101, 18);
             this.rb_SSL_SI.Name = "rb_SSL_SI";
-            this.rb_SSL_SI.Size = new System.Drawing.Size(50, 24);
+            this.rb_SSL_SI.Size = new System.Drawing.Size(48, 25);
             this.rb_SSL_SI.TabIndex = 16;
             this.rb_SSL_SI.TabStop = true;
             this.rb_SSL_SI.Text = "SI";
@@ -403,7 +414,7 @@ namespace UI
             this.rb_SSL_NO.AutoSize = true;
             this.rb_SSL_NO.Location = new System.Drawing.Point(163, 18);
             this.rb_SSL_NO.Name = "rb_SSL_NO";
-            this.rb_SSL_NO.Size = new System.Drawing.Size(57, 24);
+            this.rb_SSL_NO.Size = new System.Drawing.Size(59, 25);
             this.rb_SSL_NO.TabIndex = 17;
             this.rb_SSL_NO.TabStop = true;
             this.rb_SSL_NO.Text = "NO";
@@ -427,7 +438,7 @@ namespace UI
             this.lbl_PIN_PASS.AutoSize = true;
             this.lbl_PIN_PASS.Location = new System.Drawing.Point(6, 23);
             this.lbl_PIN_PASS.Name = "lbl_PIN_PASS";
-            this.lbl_PIN_PASS.Size = new System.Drawing.Size(91, 20);
+            this.lbl_PIN_PASS.Size = new System.Drawing.Size(90, 21);
             this.lbl_PIN_PASS.TabIndex = 3;
             this.lbl_PIN_PASS.Text = "Escribir PIN";
             // 
@@ -436,7 +447,7 @@ namespace UI
             this.rb_Pass_PIN_SI.AutoSize = true;
             this.rb_Pass_PIN_SI.Location = new System.Drawing.Point(103, 19);
             this.rb_Pass_PIN_SI.Name = "rb_Pass_PIN_SI";
-            this.rb_Pass_PIN_SI.Size = new System.Drawing.Size(50, 24);
+            this.rb_Pass_PIN_SI.Size = new System.Drawing.Size(48, 25);
             this.rb_Pass_PIN_SI.TabIndex = 4;
             this.rb_Pass_PIN_SI.TabStop = true;
             this.rb_Pass_PIN_SI.Text = "SI";
@@ -447,7 +458,7 @@ namespace UI
             this.rb_Pass_PIN_NO.AutoSize = true;
             this.rb_Pass_PIN_NO.Location = new System.Drawing.Point(165, 19);
             this.rb_Pass_PIN_NO.Name = "rb_Pass_PIN_NO";
-            this.rb_Pass_PIN_NO.Size = new System.Drawing.Size(57, 24);
+            this.rb_Pass_PIN_NO.Size = new System.Drawing.Size(59, 25);
             this.rb_Pass_PIN_NO.TabIndex = 5;
             this.rb_Pass_PIN_NO.TabStop = true;
             this.rb_Pass_PIN_NO.Text = "NO";
@@ -471,16 +482,16 @@ namespace UI
             this.lbl_Prefijo_PIN.AutoSize = true;
             this.lbl_Prefijo_PIN.Location = new System.Drawing.Point(3, 27);
             this.lbl_Prefijo_PIN.Name = "lbl_Prefijo_PIN";
-            this.lbl_Prefijo_PIN.Size = new System.Drawing.Size(79, 20);
+            this.lbl_Prefijo_PIN.Size = new System.Drawing.Size(81, 21);
             this.lbl_Prefijo_PIN.TabIndex = 0;
             this.lbl_Prefijo_PIN.Text = "Prefijo Pin";
             // 
             // rb_Prefijo_SI
             // 
             this.rb_Prefijo_SI.AutoSize = true;
-            this.rb_Prefijo_SI.Location = new System.Drawing.Point(88, 23);
+            this.rb_Prefijo_SI.Location = new System.Drawing.Point(99, 23);
             this.rb_Prefijo_SI.Name = "rb_Prefijo_SI";
-            this.rb_Prefijo_SI.Size = new System.Drawing.Size(50, 24);
+            this.rb_Prefijo_SI.Size = new System.Drawing.Size(48, 25);
             this.rb_Prefijo_SI.TabIndex = 1;
             this.rb_Prefijo_SI.TabStop = true;
             this.rb_Prefijo_SI.Text = "SI";
@@ -489,9 +500,9 @@ namespace UI
             // rb_Prefijo_NO
             // 
             this.rb_Prefijo_NO.AutoSize = true;
-            this.rb_Prefijo_NO.Location = new System.Drawing.Point(144, 23);
+            this.rb_Prefijo_NO.Location = new System.Drawing.Point(159, 23);
             this.rb_Prefijo_NO.Name = "rb_Prefijo_NO";
-            this.rb_Prefijo_NO.Size = new System.Drawing.Size(57, 24);
+            this.rb_Prefijo_NO.Size = new System.Drawing.Size(59, 25);
             this.rb_Prefijo_NO.TabIndex = 2;
             this.rb_Prefijo_NO.TabStop = true;
             this.rb_Prefijo_NO.Text = "NO";
@@ -501,7 +512,7 @@ namespace UI
             // 
             this.pB_Sync.Image = ((System.Drawing.Image)(resources.GetObject("pB_Sync.Image")));
             this.pB_Sync.InitialImage = ((System.Drawing.Image)(resources.GetObject("pB_Sync.InitialImage")));
-            this.pB_Sync.Location = new System.Drawing.Point(320, 483);
+            this.pB_Sync.Location = new System.Drawing.Point(12, 28);
             this.pB_Sync.Name = "pB_Sync";
             this.pB_Sync.Size = new System.Drawing.Size(55, 56);
             this.pB_Sync.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -510,9 +521,9 @@ namespace UI
             // 
             // btn_Sincronizar
             // 
-            this.btn_Sincronizar.Location = new System.Drawing.Point(381, 483);
+            this.btn_Sincronizar.Location = new System.Drawing.Point(73, 28);
             this.btn_Sincronizar.Name = "btn_Sincronizar";
-            this.btn_Sincronizar.Size = new System.Drawing.Size(161, 56);
+            this.btn_Sincronizar.Size = new System.Drawing.Size(117, 56);
             this.btn_Sincronizar.TabIndex = 39;
             this.btn_Sincronizar.Text = "Sincronizar Usuarios Dominio";
             this.btn_Sincronizar.UseVisualStyleBackColor = true;
@@ -521,12 +532,13 @@ namespace UI
             // 
             // btn_Aplicar
             // 
-            this.btn_Aplicar.Location = new System.Drawing.Point(745, 483);
+            this.btn_Aplicar.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_Aplicar.Location = new System.Drawing.Point(84, 28);
             this.btn_Aplicar.Name = "btn_Aplicar";
-            this.btn_Aplicar.Size = new System.Drawing.Size(165, 56);
+            this.btn_Aplicar.Size = new System.Drawing.Size(148, 56);
             this.btn_Aplicar.TabIndex = 38;
             this.btn_Aplicar.Text = "Aplicar Cambios";
-            this.btn_Aplicar.UseVisualStyleBackColor = true;
+            this.btn_Aplicar.UseVisualStyleBackColor = false;
             this.btn_Aplicar.Click += new System.EventHandler(this.btn_Aplicar_Click);
             this.btn_Aplicar.MouseHover += new System.EventHandler(this.btn_Aplicar_MouseHover);
             // 
@@ -534,7 +546,7 @@ namespace UI
             // 
             this.txt_Secreto.Location = new System.Drawing.Point(516, 451);
             this.txt_Secreto.Name = "txt_Secreto";
-            this.txt_Secreto.Size = new System.Drawing.Size(232, 26);
+            this.txt_Secreto.Size = new System.Drawing.Size(232, 28);
             this.txt_Secreto.TabIndex = 37;
             this.txt_Secreto.Text = "secretClient";
             this.txt_Secreto.Leave += new System.EventHandler(this.txt_Secreto_Leave);
@@ -544,7 +556,7 @@ namespace UI
             this.lbl_Clave_Secret.AutoSize = true;
             this.lbl_Clave_Secret.Location = new System.Drawing.Point(316, 455);
             this.lbl_Clave_Secret.Name = "lbl_Clave_Secret";
-            this.lbl_Clave_Secret.Size = new System.Drawing.Size(182, 20);
+            this.lbl_Clave_Secret.Size = new System.Drawing.Size(177, 21);
             this.lbl_Clave_Secret.TabIndex = 36;
             this.lbl_Clave_Secret.Text = "Clave Secreta Clientes =";
             // 
@@ -552,7 +564,7 @@ namespace UI
             // 
             this.txt_Filtro_Grupo.Location = new System.Drawing.Point(516, 409);
             this.txt_Filtro_Grupo.Name = "txt_Filtro_Grupo";
-            this.txt_Filtro_Grupo.Size = new System.Drawing.Size(232, 26);
+            this.txt_Filtro_Grupo.Size = new System.Drawing.Size(232, 28);
             this.txt_Filtro_Grupo.TabIndex = 30;
             this.txt_Filtro_Grupo.Text = "GrupoMFA";
             // 
@@ -561,7 +573,7 @@ namespace UI
             this.lbl_Filtro_Grupo.AutoSize = true;
             this.lbl_Filtro_Grupo.Location = new System.Drawing.Point(316, 413);
             this.lbl_Filtro_Grupo.Name = "lbl_Filtro_Grupo";
-            this.lbl_Filtro_Grupo.Size = new System.Drawing.Size(133, 20);
+            this.lbl_Filtro_Grupo.Size = new System.Drawing.Size(134, 21);
             this.lbl_Filtro_Grupo.TabIndex = 29;
             this.lbl_Filtro_Grupo.Text = "Filtro Grupo AD =";
             // 
@@ -570,7 +582,7 @@ namespace UI
             this.txt_Contrasena.Location = new System.Drawing.Point(516, 372);
             this.txt_Contrasena.Name = "txt_Contrasena";
             this.txt_Contrasena.PasswordChar = '*';
-            this.txt_Contrasena.Size = new System.Drawing.Size(232, 26);
+            this.txt_Contrasena.Size = new System.Drawing.Size(190, 28);
             this.txt_Contrasena.TabIndex = 28;
             this.txt_Contrasena.Text = "DOMAINPASS";
             this.txt_Contrasena.Leave += new System.EventHandler(this.txt_Contrasena_Leave);
@@ -580,7 +592,7 @@ namespace UI
             this.lbl_Pass_Dominio.AutoSize = true;
             this.lbl_Pass_Dominio.Location = new System.Drawing.Point(316, 376);
             this.lbl_Pass_Dominio.Name = "lbl_Pass_Dominio";
-            this.lbl_Pass_Dominio.Size = new System.Drawing.Size(167, 20);
+            this.lbl_Pass_Dominio.Size = new System.Drawing.Size(168, 21);
             this.lbl_Pass_Dominio.TabIndex = 27;
             this.lbl_Pass_Dominio.Text = "Contrasena Dominio =";
             // 
@@ -588,7 +600,7 @@ namespace UI
             // 
             this.txt_Dir_Admin_Dominio.Location = new System.Drawing.Point(516, 338);
             this.txt_Dir_Admin_Dominio.Name = "txt_Dir_Admin_Dominio";
-            this.txt_Dir_Admin_Dominio.Size = new System.Drawing.Size(232, 26);
+            this.txt_Dir_Admin_Dominio.Size = new System.Drawing.Size(232, 28);
             this.txt_Dir_Admin_Dominio.TabIndex = 26;
             this.txt_Dir_Admin_Dominio.Text = "CN=Soporte,CN=Users,DC=midominio,DC=co,DC=com";
             this.txt_Dir_Admin_Dominio.Leave += new System.EventHandler(this.txt_Dir_Admin_Dominio_Leave);
@@ -598,7 +610,7 @@ namespace UI
             this.lbl_Dir_Adm_Dominio.AutoSize = true;
             this.lbl_Dir_Adm_Dominio.Location = new System.Drawing.Point(316, 338);
             this.lbl_Dir_Adm_Dominio.Name = "lbl_Dir_Adm_Dominio";
-            this.lbl_Dir_Adm_Dominio.Size = new System.Drawing.Size(169, 20);
+            this.lbl_Dir_Adm_Dominio.Size = new System.Drawing.Size(166, 21);
             this.lbl_Dir_Adm_Dominio.TabIndex = 25;
             this.lbl_Dir_Adm_Dominio.Text = "Cuenta Admin LDAP =";
             this.lbl_Dir_Adm_Dominio.MouseHover += new System.EventHandler(this.lbl_Dir_Adm_Dominio_MouseHover);
@@ -607,7 +619,7 @@ namespace UI
             // 
             this.txt_Dir_Base_DN.Location = new System.Drawing.Point(516, 297);
             this.txt_Dir_Base_DN.Name = "txt_Dir_Base_DN";
-            this.txt_Dir_Base_DN.Size = new System.Drawing.Size(232, 26);
+            this.txt_Dir_Base_DN.Size = new System.Drawing.Size(232, 28);
             this.txt_Dir_Base_DN.TabIndex = 24;
             this.txt_Dir_Base_DN.Text = "DC=midominio,DC=co,DC=com";
             this.txt_Dir_Base_DN.Leave += new System.EventHandler(this.txt_Dir_Base_DN_Leave);
@@ -617,7 +629,7 @@ namespace UI
             this.lbl_Dir_Base_DN.AutoSize = true;
             this.lbl_Dir_Base_DN.Location = new System.Drawing.Point(316, 301);
             this.lbl_Dir_Base_DN.Name = "lbl_Dir_Base_DN";
-            this.lbl_Dir_Base_DN.Size = new System.Drawing.Size(156, 20);
+            this.lbl_Dir_Base_DN.Size = new System.Drawing.Size(153, 21);
             this.lbl_Dir_Base_DN.TabIndex = 23;
             this.lbl_Dir_Base_DN.Text = "Direccion Base DN =";
             // 
@@ -626,7 +638,7 @@ namespace UI
             this.txt_IP_Dominio.Location = new System.Drawing.Point(611, 265);
             this.txt_IP_Dominio.MaxLength = 33;
             this.txt_IP_Dominio.Name = "txt_IP_Dominio";
-            this.txt_IP_Dominio.Size = new System.Drawing.Size(137, 26);
+            this.txt_IP_Dominio.Size = new System.Drawing.Size(137, 28);
             this.txt_IP_Dominio.TabIndex = 22;
             this.txt_IP_Dominio.Text = "192.168.100.14";
             this.txt_IP_Dominio.Leave += new System.EventHandler(this.txt_IP_Dominio_Leave);
@@ -635,7 +647,7 @@ namespace UI
             // 
             this.txt_Nombre_Dominio.Location = new System.Drawing.Point(516, 236);
             this.txt_Nombre_Dominio.Name = "txt_Nombre_Dominio";
-            this.txt_Nombre_Dominio.Size = new System.Drawing.Size(232, 26);
+            this.txt_Nombre_Dominio.Size = new System.Drawing.Size(232, 28);
             this.txt_Nombre_Dominio.TabIndex = 21;
             this.txt_Nombre_Dominio.Text = "midominio.co.com";
             this.txt_Nombre_Dominio.Leave += new System.EventHandler(this.txt_Nombre_Dominio_Leave);
@@ -645,7 +657,7 @@ namespace UI
             this.lbl_NombreAD.AutoSize = true;
             this.lbl_NombreAD.Location = new System.Drawing.Point(316, 240);
             this.lbl_NombreAD.Name = "lbl_NombreAD";
-            this.lbl_NombreAD.Size = new System.Drawing.Size(140, 20);
+            this.lbl_NombreAD.Size = new System.Drawing.Size(147, 21);
             this.lbl_NombreAD.TabIndex = 20;
             this.lbl_NombreAD.Text = "Nombre Dominio =";
             // 
@@ -654,7 +666,7 @@ namespace UI
             this.txt_PuertoLDAP.Location = new System.Drawing.Point(516, 205);
             this.txt_PuertoLDAP.MaxLength = 4;
             this.txt_PuertoLDAP.Name = "txt_PuertoLDAP";
-            this.txt_PuertoLDAP.Size = new System.Drawing.Size(232, 26);
+            this.txt_PuertoLDAP.Size = new System.Drawing.Size(232, 28);
             this.txt_PuertoLDAP.TabIndex = 19;
             this.txt_PuertoLDAP.Text = "389";
             this.txt_PuertoLDAP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PuertoLDAP_KeyPress);
@@ -665,7 +677,7 @@ namespace UI
             this.lbl_Puerto_LDAP.AutoSize = true;
             this.lbl_Puerto_LDAP.Location = new System.Drawing.Point(316, 209);
             this.lbl_Puerto_LDAP.Name = "lbl_Puerto_LDAP";
-            this.lbl_Puerto_LDAP.Size = new System.Drawing.Size(115, 20);
+            this.lbl_Puerto_LDAP.Size = new System.Drawing.Size(113, 21);
             this.lbl_Puerto_LDAP.TabIndex = 18;
             this.lbl_Puerto_LDAP.Text = "Puerto LDAP =";
             this.lbl_Puerto_LDAP.MouseHover += new System.EventHandler(this.lbl_Puerto_LDAP_MouseHover);
@@ -674,7 +686,7 @@ namespace UI
             // 
             this.txt_Atributo_Grupo.Location = new System.Drawing.Point(516, 164);
             this.txt_Atributo_Grupo.Name = "txt_Atributo_Grupo";
-            this.txt_Atributo_Grupo.Size = new System.Drawing.Size(232, 26);
+            this.txt_Atributo_Grupo.Size = new System.Drawing.Size(232, 28);
             this.txt_Atributo_Grupo.TabIndex = 14;
             this.txt_Atributo_Grupo.Text = "memberof";
             this.txt_Atributo_Grupo.Leave += new System.EventHandler(this.txt_Atributo_Grupo_Leave);
@@ -682,9 +694,10 @@ namespace UI
             // lbl_Atributo_Grupo
             // 
             this.lbl_Atributo_Grupo.AutoSize = true;
+            this.lbl_Atributo_Grupo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Atributo_Grupo.Location = new System.Drawing.Point(316, 168);
             this.lbl_Atributo_Grupo.Name = "lbl_Atributo_Grupo";
-            this.lbl_Atributo_Grupo.Size = new System.Drawing.Size(127, 20);
+            this.lbl_Atributo_Grupo.Size = new System.Drawing.Size(130, 21);
             this.lbl_Atributo_Grupo.TabIndex = 13;
             this.lbl_Atributo_Grupo.Text = "Atributo Grupo =";
             // 
@@ -692,7 +705,7 @@ namespace UI
             // 
             this.txt_IdentificadorGrupo.Location = new System.Drawing.Point(516, 128);
             this.txt_IdentificadorGrupo.Name = "txt_IdentificadorGrupo";
-            this.txt_IdentificadorGrupo.Size = new System.Drawing.Size(232, 26);
+            this.txt_IdentificadorGrupo.Size = new System.Drawing.Size(232, 28);
             this.txt_IdentificadorGrupo.TabIndex = 12;
             this.txt_IdentificadorGrupo.Text = "sAMAccountName";
             this.txt_IdentificadorGrupo.Leave += new System.EventHandler(this.txt_IdentificadorGrupo_Leave);
@@ -702,7 +715,7 @@ namespace UI
             this.lbl_IdentificadorGrupo.AutoSize = true;
             this.lbl_IdentificadorGrupo.Location = new System.Drawing.Point(316, 131);
             this.lbl_IdentificadorGrupo.Name = "lbl_IdentificadorGrupo";
-            this.lbl_IdentificadorGrupo.Size = new System.Drawing.Size(185, 20);
+            this.lbl_IdentificadorGrupo.Size = new System.Drawing.Size(186, 21);
             this.lbl_IdentificadorGrupo.TabIndex = 11;
             this.lbl_IdentificadorGrupo.Text = "Identificador Grupo CN =";
             // 
@@ -710,7 +723,7 @@ namespace UI
             // 
             this.txt_CuentaCN.Location = new System.Drawing.Point(516, 96);
             this.txt_CuentaCN.Name = "txt_CuentaCN";
-            this.txt_CuentaCN.Size = new System.Drawing.Size(232, 26);
+            this.txt_CuentaCN.Size = new System.Drawing.Size(232, 28);
             this.txt_CuentaCN.TabIndex = 10;
             this.txt_CuentaCN.Text = "sAMAccountName";
             this.txt_CuentaCN.Leave += new System.EventHandler(this.txt_CuentaCN_Leave);
@@ -720,26 +733,95 @@ namespace UI
             this.lbl_Identificador.AutoSize = true;
             this.lbl_Identificador.Location = new System.Drawing.Point(316, 100);
             this.lbl_Identificador.Name = "lbl_Identificador";
-            this.lbl_Identificador.Size = new System.Drawing.Size(192, 20);
+            this.lbl_Identificador.Size = new System.Drawing.Size(191, 21);
             this.lbl_Identificador.TabIndex = 9;
             this.lbl_Identificador.Text = "Identificador Cuenta CN =";
             // 
-            // btn_Tarea
+            // btn_cargarConfig
             // 
-            this.btn_Tarea.Location = new System.Drawing.Point(576, 483);
-            this.btn_Tarea.Name = "btn_Tarea";
-            this.btn_Tarea.Size = new System.Drawing.Size(121, 56);
-            this.btn_Tarea.TabIndex = 57;
-            this.btn_Tarea.Text = "Crear tarea Sincronizacion";
-            this.btn_Tarea.UseVisualStyleBackColor = true;
-            this.btn_Tarea.Click += new System.EventHandler(this.btn_Tarea_Click);
+            this.btn_cargarConfig.BackColor = System.Drawing.Color.Salmon;
+            this.btn_cargarConfig.Location = new System.Drawing.Point(84, 120);
+            this.btn_cargarConfig.Name = "btn_cargarConfig";
+            this.btn_cargarConfig.Size = new System.Drawing.Size(148, 53);
+            this.btn_cargarConfig.TabIndex = 58;
+            this.btn_cargarConfig.Text = "Cargar Conf Actual";
+            this.btn_cargarConfig.UseVisualStyleBackColor = false;
+            this.btn_cargarConfig.Click += new System.EventHandler(this.btn_cargarConfig_Click);
+            // 
+            // gpB_Sincronizacion
+            // 
+            this.gpB_Sincronizacion.Controls.Add(this.pb_Task);
+            this.gpB_Sincronizacion.Controls.Add(this.btn_Sincronizar);
+            this.gpB_Sincronizacion.Controls.Add(this.pB_Sync);
+            this.gpB_Sincronizacion.Controls.Add(this.btn_Tarea);
+            this.gpB_Sincronizacion.Location = new System.Drawing.Point(320, 483);
+            this.gpB_Sincronizacion.Name = "gpB_Sincronizacion";
+            this.gpB_Sincronizacion.Size = new System.Drawing.Size(428, 99);
+            this.gpB_Sincronizacion.TabIndex = 59;
+            this.gpB_Sincronizacion.TabStop = false;
+            this.gpB_Sincronizacion.Text = "Sincronizacion";
+            // 
+            // pB_Pass
+            // 
+            this.pB_Pass.Image = ((System.Drawing.Image)(resources.GetObject("pB_Pass.Image")));
+            this.pB_Pass.Location = new System.Drawing.Point(719, 371);
+            this.pB_Pass.Name = "pB_Pass";
+            this.pB_Pass.Size = new System.Drawing.Size(29, 27);
+            this.pB_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pB_Pass.TabIndex = 60;
+            this.pB_Pass.TabStop = false;
+            this.pB_Pass.MouseLeave += new System.EventHandler(this.pB_Pass_MouseLeave);
+            this.pB_Pass.MouseHover += new System.EventHandler(this.pB_Pass_MouseHover);
+            // 
+            // pb_Task
+            // 
+            this.pb_Task.Image = ((System.Drawing.Image)(resources.GetObject("pb_Task.Image")));
+            this.pb_Task.Location = new System.Drawing.Point(224, 26);
+            this.pb_Task.Name = "pb_Task";
+            this.pb_Task.Size = new System.Drawing.Size(44, 56);
+            this.pb_Task.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Task.TabIndex = 58;
+            this.pb_Task.TabStop = false;
+            // 
+            // gpB_Datos
+            // 
+            this.gpB_Datos.Controls.Add(this.pb_Load);
+            this.gpB_Datos.Controls.Add(this.pb_Apply);
+            this.gpB_Datos.Controls.Add(this.btn_Aplicar);
+            this.gpB_Datos.Controls.Add(this.btn_cargarConfig);
+            this.gpB_Datos.Location = new System.Drawing.Point(774, 409);
+            this.gpB_Datos.Name = "gpB_Datos";
+            this.gpB_Datos.Size = new System.Drawing.Size(238, 183);
+            this.gpB_Datos.TabIndex = 61;
+            this.gpB_Datos.TabStop = false;
+            this.gpB_Datos.Text = "Datos";
+            // 
+            // pb_Apply
+            // 
+            this.pb_Apply.Image = ((System.Drawing.Image)(resources.GetObject("pb_Apply.Image")));
+            this.pb_Apply.Location = new System.Drawing.Point(19, 28);
+            this.pb_Apply.Name = "pb_Apply";
+            this.pb_Apply.Size = new System.Drawing.Size(47, 56);
+            this.pb_Apply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Apply.TabIndex = 59;
+            this.pb_Apply.TabStop = false;
+            // 
+            // pb_Load
+            // 
+            this.pb_Load.Image = ((System.Drawing.Image)(resources.GetObject("pb_Load.Image")));
+            this.pb_Load.Location = new System.Drawing.Point(19, 120);
+            this.pb_Load.Name = "pb_Load";
+            this.pb_Load.Size = new System.Drawing.Size(47, 53);
+            this.pb_Load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Load.TabIndex = 62;
+            this.pb_Load.TabStop = false;
             // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(969, 590);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(1063, 632);
             this.Controls.Add(this.gpB_Menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Main";
@@ -767,6 +849,12 @@ namespace UI
             this.gpB_Prefijo.ResumeLayout(false);
             this.gpB_Prefijo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Sync)).EndInit();
+            this.gpB_Sincronizacion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Pass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Task)).EndInit();
+            this.gpB_Datos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -826,11 +914,17 @@ namespace UI
         private System.Windows.Forms.GroupBox gp_SSL;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmb_Protocolo;
-        private System.Windows.Forms.Button btn_Mostrar;
         private System.Windows.Forms.ToolTip tT_Message;
         private System.Windows.Forms.Button btn_Elegir_Archivo;
         private System.Windows.Forms.Label lbl_File;
         private System.Windows.Forms.GroupBox gpB_Elegir_Arch;
         private System.Windows.Forms.Button btn_Tarea;
+        private System.Windows.Forms.Button btn_cargarConfig;
+        private System.Windows.Forms.GroupBox gpB_Sincronizacion;
+        private System.Windows.Forms.PictureBox pB_Pass;
+        private System.Windows.Forms.GroupBox gpB_Datos;
+        private System.Windows.Forms.PictureBox pb_Load;
+        private System.Windows.Forms.PictureBox pb_Apply;
+        private System.Windows.Forms.PictureBox pb_Task;
     }
 }
