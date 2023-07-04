@@ -125,7 +125,7 @@ namespace BLL_MultiOTP_Adm
                   
                 }
                 File.WriteAllLines(DAL_Objects.sFilePath, lines);
-                DAL_Objects.sMsjErr = "exito al guardar, revise la aplicacion Web";
+                DAL_Objects.sMsjErr = "exito al guardar, Sincronice el directorio de LDAP";
             }
 
             catch(Exception ex)

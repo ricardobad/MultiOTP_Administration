@@ -120,7 +120,63 @@ namespace UI
         #region Validaciones
 
             private void validarVacios(ref cls_parametros_DAL DAL) {
-            
+            //txts
+            if (txt_CuentaCN.Text ==string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_IdentificadorGrupo.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Atributo_Grupo.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_PuertoLDAP.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_IP_Dominio.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Nombre_Dominio.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Nombre_Dominio.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Dir_Base_DN.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Dir_Admin_Dominio.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Contrasena.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+            if (txt_Secreto.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Verifique los campos de texto, deben contener texto";
+                return;
+            }
+
             //radiobuttons
             if (rb_Active_DIrectoy.Checked == false && rb_OPEN_LDAP.Checked==false) 
             {
