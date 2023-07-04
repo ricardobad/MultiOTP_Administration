@@ -52,17 +52,26 @@ namespace UI
 
         private void btn_Aplicar_Click(object sender, EventArgs e)
         {
-            //carga de variable path a ruta de archivo
-            DAL_Obj.sFilePath = btn_Elegir_Archivo.Text.Trim();
-            capturaDatos(ref DAL_Obj);
+            this.validarVacios(ref DAL_Obj);
+            if (DAL_Obj.sMsjErr == string.Empty)
+            {
+                //carga de variable path a ruta de archivo
+                DAL_Obj.sFilePath = btn_Elegir_Archivo.Text.Trim();
+                capturaDatos(ref DAL_Obj);
 
+                BLL_Obj.InsertaDatos(ref DAL_Obj);
 
-
-            BLL_Obj.InsertaDatos(ref DAL_Obj);
-
-
-
-            MessageBox.Show(DAL_Obj.sMsjErr);
+                MessageBox.Show(DAL_Obj.sMsjErr);
+            }
+            else
+            {
+                MessageBox.Show(DAL_Obj.sMsjErr);
+                //reinicia msj de error
+                DAL_Obj.sMsjErr = string.Empty;
+                return;
+            }
+            
+         
 
         }
 
@@ -110,7 +119,53 @@ namespace UI
 
         #region Validaciones
 
-        private void gpB_PIN_Pass_MouseHover(object sender, EventArgs e)
+            private void validarVacios(ref cls_parametros_DAL DAL) {
+            
+            //radiobuttons
+            if (rb_Active_DIrectoy.Checked == false && rb_OPEN_LDAP.Checked==false) 
+            {
+                DAL_Obj.sMsjErr = "Debe seleccionar el campo de TIPO AD";
+                return;
+            }
+            if (rb_SSL_NO.Checked == false && rb_SSL_SI.Checked == false)
+            {
+                DAL_Obj.sMsjErr = "Debe seleccionar el campo de SSL";
+                return;
+            }
+            if (rb_Pass_PIN_NO.Checked == false && rb_Pass_PIN_SI.Checked == false)
+            {
+                DAL_Obj.sMsjErr = "Debe seleccionar el campo de PIN o PASSWORD";
+                return;
+            }
+            if (rb_LDAP_Support_NO.Checked == false && rb_LDAP_Support_SI.Checked == false)
+            {
+                DAL_Obj.sMsjErr = "Debe seleccionar el campo de Soporte LDAP";
+                return;
+            }
+            if (rb_Prefijo_NO.Checked == false && rb_Prefijo_SI.Checked == false)
+            {
+                DAL_Obj.sMsjErr = "Debe seleccionar el campo de Prefijo Pin";
+                return;
+            }
+            //nUD
+            if (nUD_Timeout_LDAP.Value == 0) {
+                DAL_Obj.sMsjErr = "El valor de Timeout no puede ser 0";
+                return;
+            }
+            if (nUD_Transact.Value == 0)
+            {
+                DAL_Obj.sMsjErr = "El valor de Timeout no puede ser 0";
+                return;
+            }
+            if (cmb_Protocolo.Text == string.Empty)
+            {
+                DAL_Obj.sMsjErr = "Debe seleccionar un protocolo";
+                return;
+            }
+
+        }
+
+            private void gpB_PIN_Pass_MouseHover(object sender, EventArgs e)
             {
                 tT_Message.Show("Los usuarios deben escribir el pin en vez de la clave de LDAP", gpB_PIN_Pass);
             }

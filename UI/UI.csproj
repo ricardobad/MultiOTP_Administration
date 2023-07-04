@@ -106,6 +106,7 @@
     <Content Include="images\eye_pass.png" />
     <Content Include="images\load.png" />
     <Content Include="images\multiotp.ico" />
+    <Content Include="images\Multiotp.png" />
     <Content Include="images\task.ico" />
     <Content Include="images\task.png" />
     <Content Include="images\Update.png" />

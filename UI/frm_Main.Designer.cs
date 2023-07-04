@@ -32,6 +32,16 @@ namespace UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.gpB_Menu = new System.Windows.Forms.GroupBox();
+            this.gpB_Datos = new System.Windows.Forms.GroupBox();
+            this.pb_Load = new System.Windows.Forms.PictureBox();
+            this.pb_Apply = new System.Windows.Forms.PictureBox();
+            this.btn_Aplicar = new System.Windows.Forms.Button();
+            this.btn_cargarConfig = new System.Windows.Forms.Button();
+            this.pB_Pass = new System.Windows.Forms.PictureBox();
+            this.gpB_Sincronizacion = new System.Windows.Forms.GroupBox();
+            this.pb_Task = new System.Windows.Forms.PictureBox();
+            this.btn_Sincronizar = new System.Windows.Forms.Button();
+            this.pB_Sync = new System.Windows.Forms.PictureBox();
             this.btn_Tarea = new System.Windows.Forms.Button();
             this.gpB_Elegir_Arch = new System.Windows.Forms.GroupBox();
             this.btn_Elegir_Archivo = new System.Windows.Forms.Button();
@@ -64,9 +74,6 @@ namespace UI
             this.lbl_Prefijo_PIN = new System.Windows.Forms.Label();
             this.rb_Prefijo_SI = new System.Windows.Forms.RadioButton();
             this.rb_Prefijo_NO = new System.Windows.Forms.RadioButton();
-            this.pB_Sync = new System.Windows.Forms.PictureBox();
-            this.btn_Sincronizar = new System.Windows.Forms.Button();
-            this.btn_Aplicar = new System.Windows.Forms.Button();
             this.txt_Secreto = new System.Windows.Forms.TextBox();
             this.lbl_Clave_Secret = new System.Windows.Forms.Label();
             this.txt_Filtro_Grupo = new System.Windows.Forms.TextBox();
@@ -89,14 +96,15 @@ namespace UI
             this.txt_CuentaCN = new System.Windows.Forms.TextBox();
             this.lbl_Identificador = new System.Windows.Forms.Label();
             this.tT_Message = new System.Windows.Forms.ToolTip(this.components);
-            this.btn_cargarConfig = new System.Windows.Forms.Button();
-            this.gpB_Sincronizacion = new System.Windows.Forms.GroupBox();
-            this.pB_Pass = new System.Windows.Forms.PictureBox();
-            this.pb_Task = new System.Windows.Forms.PictureBox();
-            this.gpB_Datos = new System.Windows.Forms.GroupBox();
-            this.pb_Apply = new System.Windows.Forms.PictureBox();
-            this.pb_Load = new System.Windows.Forms.PictureBox();
+            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.gpB_Menu.SuspendLayout();
+            this.gpB_Datos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Pass)).BeginInit();
+            this.gpB_Sincronizacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Task)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Sync)).BeginInit();
             this.gpB_Elegir_Arch.SuspendLayout();
             this.gp_TipoAD.SuspendLayout();
             this.gpB_TimeoutServer.SuspendLayout();
@@ -107,17 +115,12 @@ namespace UI
             this.gp_SSL.SuspendLayout();
             this.gpB_PIN_Pass.SuspendLayout();
             this.gpB_Prefijo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Sync)).BeginInit();
-            this.gpB_Sincronizacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Pass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Task)).BeginInit();
-            this.gpB_Datos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // gpB_Menu
             // 
+            this.gpB_Menu.Controls.Add(this.pb_Logo);
             this.gpB_Menu.Controls.Add(this.gpB_Datos);
             this.gpB_Menu.Controls.Add(this.pB_Pass);
             this.gpB_Menu.Controls.Add(this.gpB_Sincronizacion);
@@ -159,6 +162,119 @@ namespace UI
             this.gpB_Menu.TabIndex = 0;
             this.gpB_Menu.TabStop = false;
             this.gpB_Menu.Text = "Parametros Active Directory";
+            // 
+            // gpB_Datos
+            // 
+            this.gpB_Datos.Controls.Add(this.pb_Load);
+            this.gpB_Datos.Controls.Add(this.pb_Apply);
+            this.gpB_Datos.Controls.Add(this.btn_Aplicar);
+            this.gpB_Datos.Controls.Add(this.btn_cargarConfig);
+            this.gpB_Datos.Location = new System.Drawing.Point(774, 409);
+            this.gpB_Datos.Name = "gpB_Datos";
+            this.gpB_Datos.Size = new System.Drawing.Size(238, 183);
+            this.gpB_Datos.TabIndex = 61;
+            this.gpB_Datos.TabStop = false;
+            this.gpB_Datos.Text = "Datos";
+            // 
+            // pb_Load
+            // 
+            this.pb_Load.Image = ((System.Drawing.Image)(resources.GetObject("pb_Load.Image")));
+            this.pb_Load.Location = new System.Drawing.Point(19, 120);
+            this.pb_Load.Name = "pb_Load";
+            this.pb_Load.Size = new System.Drawing.Size(47, 53);
+            this.pb_Load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Load.TabIndex = 62;
+            this.pb_Load.TabStop = false;
+            // 
+            // pb_Apply
+            // 
+            this.pb_Apply.Image = ((System.Drawing.Image)(resources.GetObject("pb_Apply.Image")));
+            this.pb_Apply.Location = new System.Drawing.Point(19, 28);
+            this.pb_Apply.Name = "pb_Apply";
+            this.pb_Apply.Size = new System.Drawing.Size(47, 56);
+            this.pb_Apply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Apply.TabIndex = 59;
+            this.pb_Apply.TabStop = false;
+            // 
+            // btn_Aplicar
+            // 
+            this.btn_Aplicar.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_Aplicar.Location = new System.Drawing.Point(84, 28);
+            this.btn_Aplicar.Name = "btn_Aplicar";
+            this.btn_Aplicar.Size = new System.Drawing.Size(148, 56);
+            this.btn_Aplicar.TabIndex = 38;
+            this.btn_Aplicar.Text = "Aplicar Cambios";
+            this.btn_Aplicar.UseVisualStyleBackColor = false;
+            this.btn_Aplicar.Click += new System.EventHandler(this.btn_Aplicar_Click);
+            this.btn_Aplicar.MouseHover += new System.EventHandler(this.btn_Aplicar_MouseHover);
+            // 
+            // btn_cargarConfig
+            // 
+            this.btn_cargarConfig.BackColor = System.Drawing.Color.Salmon;
+            this.btn_cargarConfig.Location = new System.Drawing.Point(84, 120);
+            this.btn_cargarConfig.Name = "btn_cargarConfig";
+            this.btn_cargarConfig.Size = new System.Drawing.Size(148, 53);
+            this.btn_cargarConfig.TabIndex = 58;
+            this.btn_cargarConfig.Text = "Cargar Conf Actual";
+            this.btn_cargarConfig.UseVisualStyleBackColor = false;
+            this.btn_cargarConfig.Click += new System.EventHandler(this.btn_cargarConfig_Click);
+            // 
+            // pB_Pass
+            // 
+            this.pB_Pass.Image = ((System.Drawing.Image)(resources.GetObject("pB_Pass.Image")));
+            this.pB_Pass.Location = new System.Drawing.Point(719, 371);
+            this.pB_Pass.Name = "pB_Pass";
+            this.pB_Pass.Size = new System.Drawing.Size(29, 27);
+            this.pB_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pB_Pass.TabIndex = 60;
+            this.pB_Pass.TabStop = false;
+            this.pB_Pass.MouseLeave += new System.EventHandler(this.pB_Pass_MouseLeave);
+            this.pB_Pass.MouseHover += new System.EventHandler(this.pB_Pass_MouseHover);
+            // 
+            // gpB_Sincronizacion
+            // 
+            this.gpB_Sincronizacion.Controls.Add(this.pb_Task);
+            this.gpB_Sincronizacion.Controls.Add(this.btn_Sincronizar);
+            this.gpB_Sincronizacion.Controls.Add(this.pB_Sync);
+            this.gpB_Sincronizacion.Controls.Add(this.btn_Tarea);
+            this.gpB_Sincronizacion.Location = new System.Drawing.Point(320, 483);
+            this.gpB_Sincronizacion.Name = "gpB_Sincronizacion";
+            this.gpB_Sincronizacion.Size = new System.Drawing.Size(428, 99);
+            this.gpB_Sincronizacion.TabIndex = 59;
+            this.gpB_Sincronizacion.TabStop = false;
+            this.gpB_Sincronizacion.Text = "Sincronizacion";
+            // 
+            // pb_Task
+            // 
+            this.pb_Task.Image = ((System.Drawing.Image)(resources.GetObject("pb_Task.Image")));
+            this.pb_Task.Location = new System.Drawing.Point(224, 26);
+            this.pb_Task.Name = "pb_Task";
+            this.pb_Task.Size = new System.Drawing.Size(44, 56);
+            this.pb_Task.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Task.TabIndex = 58;
+            this.pb_Task.TabStop = false;
+            // 
+            // btn_Sincronizar
+            // 
+            this.btn_Sincronizar.Location = new System.Drawing.Point(73, 28);
+            this.btn_Sincronizar.Name = "btn_Sincronizar";
+            this.btn_Sincronizar.Size = new System.Drawing.Size(117, 56);
+            this.btn_Sincronizar.TabIndex = 39;
+            this.btn_Sincronizar.Text = "Sincronizar Usuarios Dominio";
+            this.btn_Sincronizar.UseVisualStyleBackColor = true;
+            this.btn_Sincronizar.Click += new System.EventHandler(this.btn_Sincronizar_Click);
+            this.btn_Sincronizar.MouseHover += new System.EventHandler(this.btn_Sincronizar_MouseHover);
+            // 
+            // pB_Sync
+            // 
+            this.pB_Sync.Image = ((System.Drawing.Image)(resources.GetObject("pB_Sync.Image")));
+            this.pB_Sync.InitialImage = ((System.Drawing.Image)(resources.GetObject("pB_Sync.InitialImage")));
+            this.pB_Sync.Location = new System.Drawing.Point(12, 28);
+            this.pB_Sync.Name = "pB_Sync";
+            this.pB_Sync.Size = new System.Drawing.Size(55, 56);
+            this.pB_Sync.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pB_Sync.TabIndex = 40;
+            this.pB_Sync.TabStop = false;
             // 
             // btn_Tarea
             // 
@@ -270,9 +386,9 @@ namespace UI
             // 
             this.gpB_TimeoutServer.Controls.Add(this.lbl_Tiempo_Transact);
             this.gpB_TimeoutServer.Controls.Add(this.nUD_Transact);
-            this.gpB_TimeoutServer.Location = new System.Drawing.Point(28, 386);
+            this.gpB_TimeoutServer.Location = new System.Drawing.Point(24, 474);
             this.gpB_TimeoutServer.Name = "gpB_TimeoutServer";
-            this.gpB_TimeoutServer.Size = new System.Drawing.Size(234, 65);
+            this.gpB_TimeoutServer.Size = new System.Drawing.Size(238, 65);
             this.gpB_TimeoutServer.TabIndex = 48;
             this.gpB_TimeoutServer.TabStop = false;
             this.gpB_TimeoutServer.Text = "Timeout Server Auth";
@@ -347,9 +463,9 @@ namespace UI
             // 
             this.gpB_Timeout.Controls.Add(this.lbl_Timeout_LDAP);
             this.gpB_Timeout.Controls.Add(this.nUD_Timeout_LDAP);
-            this.gpB_Timeout.Location = new System.Drawing.Point(28, 312);
+            this.gpB_Timeout.Location = new System.Drawing.Point(24, 397);
             this.gpB_Timeout.Name = "gpB_Timeout";
-            this.gpB_Timeout.Size = new System.Drawing.Size(233, 52);
+            this.gpB_Timeout.Size = new System.Drawing.Size(238, 52);
             this.gpB_Timeout.TabIndex = 46;
             this.gpB_Timeout.TabStop = false;
             this.gpB_Timeout.Text = "Timeout hacia LDAP";
@@ -469,9 +585,9 @@ namespace UI
             this.gpB_Prefijo.Controls.Add(this.lbl_Prefijo_PIN);
             this.gpB_Prefijo.Controls.Add(this.rb_Prefijo_SI);
             this.gpB_Prefijo.Controls.Add(this.rb_Prefijo_NO);
-            this.gpB_Prefijo.Location = new System.Drawing.Point(29, 477);
+            this.gpB_Prefijo.Location = new System.Drawing.Point(24, 309);
             this.gpB_Prefijo.Name = "gpB_Prefijo";
-            this.gpB_Prefijo.Size = new System.Drawing.Size(232, 57);
+            this.gpB_Prefijo.Size = new System.Drawing.Size(237, 57);
             this.gpB_Prefijo.TabIndex = 43;
             this.gpB_Prefijo.TabStop = false;
             this.gpB_Prefijo.Text = "Prefijo";
@@ -507,40 +623,6 @@ namespace UI
             this.rb_Prefijo_NO.TabStop = true;
             this.rb_Prefijo_NO.Text = "NO";
             this.rb_Prefijo_NO.UseVisualStyleBackColor = true;
-            // 
-            // pB_Sync
-            // 
-            this.pB_Sync.Image = ((System.Drawing.Image)(resources.GetObject("pB_Sync.Image")));
-            this.pB_Sync.InitialImage = ((System.Drawing.Image)(resources.GetObject("pB_Sync.InitialImage")));
-            this.pB_Sync.Location = new System.Drawing.Point(12, 28);
-            this.pB_Sync.Name = "pB_Sync";
-            this.pB_Sync.Size = new System.Drawing.Size(55, 56);
-            this.pB_Sync.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pB_Sync.TabIndex = 40;
-            this.pB_Sync.TabStop = false;
-            // 
-            // btn_Sincronizar
-            // 
-            this.btn_Sincronizar.Location = new System.Drawing.Point(73, 28);
-            this.btn_Sincronizar.Name = "btn_Sincronizar";
-            this.btn_Sincronizar.Size = new System.Drawing.Size(117, 56);
-            this.btn_Sincronizar.TabIndex = 39;
-            this.btn_Sincronizar.Text = "Sincronizar Usuarios Dominio";
-            this.btn_Sincronizar.UseVisualStyleBackColor = true;
-            this.btn_Sincronizar.Click += new System.EventHandler(this.btn_Sincronizar_Click);
-            this.btn_Sincronizar.MouseHover += new System.EventHandler(this.btn_Sincronizar_MouseHover);
-            // 
-            // btn_Aplicar
-            // 
-            this.btn_Aplicar.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_Aplicar.Location = new System.Drawing.Point(84, 28);
-            this.btn_Aplicar.Name = "btn_Aplicar";
-            this.btn_Aplicar.Size = new System.Drawing.Size(148, 56);
-            this.btn_Aplicar.TabIndex = 38;
-            this.btn_Aplicar.Text = "Aplicar Cambios";
-            this.btn_Aplicar.UseVisualStyleBackColor = false;
-            this.btn_Aplicar.Click += new System.EventHandler(this.btn_Aplicar_Click);
-            this.btn_Aplicar.MouseHover += new System.EventHandler(this.btn_Aplicar_MouseHover);
             // 
             // txt_Secreto
             // 
@@ -737,84 +819,15 @@ namespace UI
             this.lbl_Identificador.TabIndex = 9;
             this.lbl_Identificador.Text = "Identificador Cuenta CN =";
             // 
-            // btn_cargarConfig
+            // pb_Logo
             // 
-            this.btn_cargarConfig.BackColor = System.Drawing.Color.Salmon;
-            this.btn_cargarConfig.Location = new System.Drawing.Point(84, 120);
-            this.btn_cargarConfig.Name = "btn_cargarConfig";
-            this.btn_cargarConfig.Size = new System.Drawing.Size(148, 53);
-            this.btn_cargarConfig.TabIndex = 58;
-            this.btn_cargarConfig.Text = "Cargar Conf Actual";
-            this.btn_cargarConfig.UseVisualStyleBackColor = false;
-            this.btn_cargarConfig.Click += new System.EventHandler(this.btn_cargarConfig_Click);
-            // 
-            // gpB_Sincronizacion
-            // 
-            this.gpB_Sincronizacion.Controls.Add(this.pb_Task);
-            this.gpB_Sincronizacion.Controls.Add(this.btn_Sincronizar);
-            this.gpB_Sincronizacion.Controls.Add(this.pB_Sync);
-            this.gpB_Sincronizacion.Controls.Add(this.btn_Tarea);
-            this.gpB_Sincronizacion.Location = new System.Drawing.Point(320, 483);
-            this.gpB_Sincronizacion.Name = "gpB_Sincronizacion";
-            this.gpB_Sincronizacion.Size = new System.Drawing.Size(428, 99);
-            this.gpB_Sincronizacion.TabIndex = 59;
-            this.gpB_Sincronizacion.TabStop = false;
-            this.gpB_Sincronizacion.Text = "Sincronizacion";
-            // 
-            // pB_Pass
-            // 
-            this.pB_Pass.Image = ((System.Drawing.Image)(resources.GetObject("pB_Pass.Image")));
-            this.pB_Pass.Location = new System.Drawing.Point(719, 371);
-            this.pB_Pass.Name = "pB_Pass";
-            this.pB_Pass.Size = new System.Drawing.Size(29, 27);
-            this.pB_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pB_Pass.TabIndex = 60;
-            this.pB_Pass.TabStop = false;
-            this.pB_Pass.MouseLeave += new System.EventHandler(this.pB_Pass_MouseLeave);
-            this.pB_Pass.MouseHover += new System.EventHandler(this.pB_Pass_MouseHover);
-            // 
-            // pb_Task
-            // 
-            this.pb_Task.Image = ((System.Drawing.Image)(resources.GetObject("pb_Task.Image")));
-            this.pb_Task.Location = new System.Drawing.Point(224, 26);
-            this.pb_Task.Name = "pb_Task";
-            this.pb_Task.Size = new System.Drawing.Size(44, 56);
-            this.pb_Task.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Task.TabIndex = 58;
-            this.pb_Task.TabStop = false;
-            // 
-            // gpB_Datos
-            // 
-            this.gpB_Datos.Controls.Add(this.pb_Load);
-            this.gpB_Datos.Controls.Add(this.pb_Apply);
-            this.gpB_Datos.Controls.Add(this.btn_Aplicar);
-            this.gpB_Datos.Controls.Add(this.btn_cargarConfig);
-            this.gpB_Datos.Location = new System.Drawing.Point(774, 409);
-            this.gpB_Datos.Name = "gpB_Datos";
-            this.gpB_Datos.Size = new System.Drawing.Size(238, 183);
-            this.gpB_Datos.TabIndex = 61;
-            this.gpB_Datos.TabStop = false;
-            this.gpB_Datos.Text = "Datos";
-            // 
-            // pb_Apply
-            // 
-            this.pb_Apply.Image = ((System.Drawing.Image)(resources.GetObject("pb_Apply.Image")));
-            this.pb_Apply.Location = new System.Drawing.Point(19, 28);
-            this.pb_Apply.Name = "pb_Apply";
-            this.pb_Apply.Size = new System.Drawing.Size(47, 56);
-            this.pb_Apply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Apply.TabIndex = 59;
-            this.pb_Apply.TabStop = false;
-            // 
-            // pb_Load
-            // 
-            this.pb_Load.Image = ((System.Drawing.Image)(resources.GetObject("pb_Load.Image")));
-            this.pb_Load.Location = new System.Drawing.Point(19, 120);
-            this.pb_Load.Name = "pb_Load";
-            this.pb_Load.Size = new System.Drawing.Size(47, 53);
-            this.pb_Load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Load.TabIndex = 62;
-            this.pb_Load.TabStop = false;
+            this.pb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pb_Logo.Image")));
+            this.pb_Logo.Location = new System.Drawing.Point(816, 100);
+            this.pb_Logo.Name = "pb_Logo";
+            this.pb_Logo.Size = new System.Drawing.Size(179, 200);
+            this.pb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Logo.TabIndex = 62;
+            this.pb_Logo.TabStop = false;
             // 
             // frm_Main
             // 
@@ -830,6 +843,13 @@ namespace UI
             this.Load += new System.EventHandler(this.frm_Main_Load);
             this.gpB_Menu.ResumeLayout(false);
             this.gpB_Menu.PerformLayout();
+            this.gpB_Datos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Pass)).EndInit();
+            this.gpB_Sincronizacion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Task)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Sync)).EndInit();
             this.gpB_Elegir_Arch.ResumeLayout(false);
             this.gpB_Elegir_Arch.PerformLayout();
             this.gp_TipoAD.ResumeLayout(false);
@@ -848,13 +868,7 @@ namespace UI
             this.gpB_PIN_Pass.PerformLayout();
             this.gpB_Prefijo.ResumeLayout(false);
             this.gpB_Prefijo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Sync)).EndInit();
-            this.gpB_Sincronizacion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Pass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Task)).EndInit();
-            this.gpB_Datos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -926,5 +940,6 @@ namespace UI
         private System.Windows.Forms.PictureBox pb_Load;
         private System.Windows.Forms.PictureBox pb_Apply;
         private System.Windows.Forms.PictureBox pb_Task;
+        private System.Windows.Forms.PictureBox pb_Logo;
     }
 }

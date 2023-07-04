@@ -135,14 +135,7 @@ namespace BLL_MultiOTP_Adm
 
 
             }
-
-            
-         
-
-
-
         }
-
 
         public void sincronizarAD(ref cls_parametros_DAL DAL_OBJ) {
            
@@ -198,8 +191,6 @@ namespace BLL_MultiOTP_Adm
     }
 
         public void crearTarea(ref cls_parametros_DAL DAL) {
-            
-
 
             try {
                 string batFilePath = @"C:\\multiotp\\sync.bat"; // Ruta y nombre de archivo .bat a crear
@@ -315,26 +306,34 @@ namespace BLL_MultiOTP_Adm
                     {
                         //valores es todo la linea separadas por =
                         valores = lines[i].Split('=');
-                        //Domain vale todo lo de la derecha del =
-                        DAL.sDomain = valores[1].ToString();
-                        //valores ahora vale todo lo que es domain
-                        valores = DAL.sDomain.Split(',');
-                        //Domain ahora vale lo que es a la izquierda de la , DOmain LISTO
-                        DAL.sDomain = valores[0].ToString();
-                        //Protocolo vale todo lo de la derecha de la ,
-                        DAL.sProtoc = valores[1].ToString();
-                        //valores vale todo lo dividido de protocolo
-                        valores = DAL.sProtoc.Split('/');
-                        //protocolo ahora vale lo de la izquierda del primer /
-                        DAL.sProtoc = valores[0].ToString();
-                        DAL.sProtoc = DAL.sProtoc + "//";
-                        //IP vale todo lo de la derecha del /
-                        DAL.sIPDomain = valores[2].ToString();
-                        //valores ahora vale todo lo d IP
-                        valores = DAL.sIPDomain.Split(':');
-                        //IP ahora vale lo de izq de IP
-                        DAL.sIPDomain = valores[0].ToString();
-                        continue;
+                        if (valores[1] == string.Empty)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            //Domain vale todo lo de la derecha del =
+                            DAL.sDomain = valores[1].ToString();
+                            //valores ahora vale todo lo que es domain
+                            valores = DAL.sDomain.Split(',');
+                            //Domain ahora vale lo que es a la izquierda de la , DOmain LISTO
+                            DAL.sDomain = valores[0].ToString();
+                            //Protocolo vale todo lo de la derecha de la ,
+                            DAL.sProtoc = valores[1].ToString();
+                            //valores vale todo lo dividido de protocolo
+                            valores = DAL.sProtoc.Split('/');
+                            //protocolo ahora vale lo de la izquierda del primer /
+                            DAL.sProtoc = valores[0].ToString();
+                            DAL.sProtoc = DAL.sProtoc + "//";
+                            //IP vale todo lo de la derecha del /
+                            DAL.sIPDomain = valores[2].ToString();
+                            //valores ahora vale todo lo d IP
+                            valores = DAL.sIPDomain.Split(':');
+                            //IP ahora vale lo de izq de IP
+                            DAL.sIPDomain = valores[0].ToString();
+                            continue;
+                        }
+                        
                     }
 
                     if (lines[i].StartsWith("ldap_base_dn="))
