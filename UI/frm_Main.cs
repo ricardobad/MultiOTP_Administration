@@ -52,8 +52,13 @@ namespace UI
 
         private void btn_Aplicar_Click(object sender, EventArgs e)
         {
+            //Reinicia msj en cada salida
+            DAL_Obj.sMsjErr = "";
+
+
+
             this.validarVacios(ref DAL_Obj);
-            if (DAL_Obj.sMsjErr == string.Empty)
+            if (DAL_Obj.sMsjErr == string.Empty || DAL_Obj.sMsjErr == null)
             {
                 //carga de variable path a ruta de archivo
                 DAL_Obj.sFilePath = btn_Elegir_Archivo.Text.Trim();
@@ -482,11 +487,11 @@ namespace UI
             if (rb_SSL_SI.Checked == true)
             {
 
-                DAL_Object.cSSL_Enable = '1';
+                DAL_Object.cSSL_Enable = '0';
             }
             else
             {
-                DAL_Object.cSSL_Enable = '0';
+                DAL_Object.cSSL_Enable = '1';
             }
             //PPIN o PASS
             if (rb_Pass_PIN_SI.Checked == true)
@@ -506,7 +511,7 @@ namespace UI
             }
             else
             {
-                DAL_Obj.cLDAP_Support = '0';
+                DAL_Object.cLDAP_Support = '0';
             }
             //prefijo pin
             if (rb_Prefijo_SI.Checked == true)
@@ -548,7 +553,7 @@ namespace UI
         private void cargarConfig(ref cls_parametros_DAL DAL) {
             DAL_Obj.sFilePath = btn_Elegir_Archivo.Text.Trim();
             //radiobuttons
-            if (DAL.cLDAP_Type==1)
+            if (DAL.cLDAP_Type=='1')
             {
 
                 rb_Active_DIrectoy.Checked = true;
@@ -559,7 +564,7 @@ namespace UI
             }
 
             //SSL
-            if (DAL.cSSL_Enable ==1)
+            if (DAL.cSSL_Enable == '0')
             {
 
                 rb_SSL_SI.Checked = true;
@@ -569,7 +574,7 @@ namespace UI
                 rb_SSL_NO.Checked = true;
             }
             //PPIN o PASS
-            if (DAL.cLDAP_Pass == 1)
+            if (DAL.cLDAP_Pass == '1')
             {
                 rb_Pass_PIN_SI.Checked = true;
             }
@@ -578,17 +583,17 @@ namespace UI
                 rb_Pass_PIN_NO.Checked = true;
             }
             //ConexionLDAP
-            if (DAL.cLDAP_Support == 1)
+            if (DAL.cLDAP_Support == '1')
             {
 
                 rb_LDAP_Support_SI.Checked = true;
             }
             else
             {
-                rb_LDAP_Support_NO.Checked = false;
+                rb_LDAP_Support_NO.Checked = true;
             }
             //prefijo pin
-            if (DAL.cPrefixPIN == 1)
+            if (DAL.cPrefixPIN == '1')
             {
 
                 rb_Prefijo_SI.Checked = true;

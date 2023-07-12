@@ -86,6 +86,7 @@ namespace BLL_MultiOTP_Adm
                         lines[i] = "ldap_bind_dn=" + DAL_Objects.sDomainUser;
                         continue;
                     }
+               
 
                     if (lines[i].StartsWith("ldap_server_password="))
                     {
@@ -339,14 +340,28 @@ namespace BLL_MultiOTP_Adm
                     if (lines[i].StartsWith("ldap_base_dn="))
                     {
                         valores = lines[i].Split('=');
-                        DAL.sBaseDN = valores[1].ToString();
+                        for (int j = 0; j < valores.Length; j++)
+                        {
+                            if (j !=0 )
+                                DAL.sBaseDN  += valores[j]+ "=";
+                        }
+
+                        //elimina el = del final
+                        DAL.sBaseDN = DAL.sBaseDN.TrimEnd('=');
                         continue;
                     }
 
                     if (lines[i].StartsWith("ldap_bind_dn="))
                     {
                         valores = lines[i].Split('=');
-                        DAL.sDomainUser = valores[1].ToString();
+                        for (int j = 0; j < valores.Length; j++)
+                        {
+                            if (j != 0)
+                                DAL.sDomainUser += valores[j] + "=";
+                        }
+
+                        //elimina el = del final
+                        DAL.sDomainUser = DAL.sDomainUser.TrimEnd('=');
                         continue;
                     }
 
