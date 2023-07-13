@@ -107,6 +107,7 @@
     <Content Include="images\load.png" />
     <Content Include="images\multiotp.ico" />
     <Content Include="images\Multiotp.png" />
+    <Content Include="images\Setup.ico" />
     <Content Include="images\task.ico" />
     <Content Include="images\task.png" />
     <Content Include="images\Update.png" />
