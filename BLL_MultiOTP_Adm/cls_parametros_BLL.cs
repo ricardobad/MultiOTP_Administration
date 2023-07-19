@@ -87,7 +87,13 @@ namespace BLL_MultiOTP_Adm
                         continue;
                     }
                
-
+                    //Archivo nuevo, txt plano
+                    if (lines[i].StartsWith("ldap_server_password:="))
+                    {
+                        lines[i] = "ldap_server_password=" + DAL_Objects.sPassword;
+                        continue;
+                    }
+                    //Ya existe, txt plano
                     if (lines[i].StartsWith("ldap_server_password="))
                     {
                         lines[i] = "ldap_server_password=" + DAL_Objects.sPassword;
@@ -117,13 +123,20 @@ namespace BLL_MultiOTP_Adm
                         lines[i] = "ldap_activated=" + DAL_Objects.cLDAP_Support;
                         continue;
                     }
+                    //Archivo nuevo,txt plano
+                    if (lines[i].StartsWith("server_secret:="))
+                    {
+                        lines[i] = "server_secret=" + DAL_Objects.sSecret;
+                        continue;
+                    }
 
+                    //archivo existe, txt plano
                     if (lines[i].StartsWith("server_secret="))
                     {
                         lines[i] = "server_secret=" + DAL_Objects.sSecret;
                         continue;
                     }
-                  
+
                 }
                 File.WriteAllLines(DAL_Objects.sFilePath, lines);
                 DAL_Objects.sMsjErr = "exito al guardar, Sincronice el directorio de LDAP";
@@ -364,14 +377,22 @@ namespace BLL_MultiOTP_Adm
                         DAL.sDomainUser = DAL.sDomainUser.TrimEnd('=');
                         continue;
                     }
-
-                    if (lines[i].StartsWith("ldap_server_password="))
+                    //Archivo nuevo, clave en texto plano
+                    if (lines[i].StartsWith("ldap_server_password:="))
                     {
                         valores = lines[i].Split('=');
                         DAL.sPassword = valores[1].ToString();
                         continue;
                     }
 
+                    //si ya existe, clave texto plano
+                   
+                    if (lines[i].StartsWith("ldap_server_password="))
+                    {
+                        valores = lines[i].Split('=');
+                        DAL.sPassword = valores[1].ToString();
+                        continue;
+                    }
                     if (lines[i].StartsWith("ldap_in_group="))
                     {
                         valores = lines[i].Split('=');
@@ -400,6 +421,14 @@ namespace BLL_MultiOTP_Adm
                         continue;
                     }
 
+                    //archivo nuevo, txt plano
+                    if (lines[i].StartsWith("server_secret:="))
+                    {
+                        valores = lines[i].Split('=');
+                        DAL.sSecret = valores[1].ToString();
+                        continue;
+                    }
+                    //archivo ya existe, txt plano
                     if (lines[i].StartsWith("server_secret="))
                     {
                         valores = lines[i].Split('=');
