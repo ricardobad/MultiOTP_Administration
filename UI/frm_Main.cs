@@ -621,11 +621,12 @@ namespace UI
             txt_Secreto.Text = DAL.sSecret;
 
         }
+
+
+
         #endregion
 
-      
 
-      
     } 
 }
     

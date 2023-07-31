@@ -87,18 +87,7 @@ namespace BLL_MultiOTP_Adm
                         continue;
                     }
                
-                    //Archivo nuevo, txt plano
-                    if (lines[i].StartsWith("ldap_server_password:="))
-                    {
-                        lines[i] = "ldap_server_password=" + DAL_Objects.sPassword;
-                        continue;
-                    }
-                    //Ya existe, txt plano
-                    if (lines[i].StartsWith("ldap_server_password="))
-                    {
-                        lines[i] = "ldap_server_password=" + DAL_Objects.sPassword;
-                        continue;
-                    }
+                  
 
                     if (lines[i].StartsWith("ldap_in_group="))
                     {
@@ -123,19 +112,7 @@ namespace BLL_MultiOTP_Adm
                         lines[i] = "ldap_activated=" + DAL_Objects.cLDAP_Support;
                         continue;
                     }
-                    //Archivo nuevo,txt plano
-                    if (lines[i].StartsWith("server_secret:="))
-                    {
-                        lines[i] = "server_secret=" + DAL_Objects.sSecret;
-                        continue;
-                    }
-
-                    //archivo existe, txt plano
-                    if (lines[i].StartsWith("server_secret="))
-                    {
-                        lines[i] = "server_secret=" + DAL_Objects.sSecret;
-                        continue;
-                    }
+                   
 
                 }
                 File.WriteAllLines(DAL_Objects.sFilePath, lines);
@@ -146,8 +123,78 @@ namespace BLL_MultiOTP_Adm
             {
 
                DAL_Objects.sMsjErr = "Error al actualizar el archivo: " + ex.Message + " \n verifique permisos y valores ingresados";
+                return;
 
+            }
+            //serverpassword
+            try
+            {
 
+                Process cmdProcess = new Process();
+
+                // Configura las propiedades del proceso
+                cmdProcess.StartInfo.FileName = "cmd.exe";
+                cmdProcess.StartInfo.RedirectStandardInput = true;
+                cmdProcess.StartInfo.RedirectStandardOutput = true;
+                cmdProcess.StartInfo.CreateNoWindow = true;
+                cmdProcess.StartInfo.UseShellExecute = false;
+
+                // Inicia el proceso
+                cmdProcess.Start();
+
+                // Envía el comando al símbolo del sistema
+                cmdProcess.StandardInput.WriteLine("start \"ServerPAss\"  \"C:\\multiotp\\multiotp.exe\" -config ldap-server-password=" + DAL_Objects.sPassword);
+                cmdProcess.StandardInput.Flush();
+                cmdProcess.StandardInput.Close();
+
+                // Espera a que finalice el proceso
+                cmdProcess.WaitForExit();
+
+                // Lee la salida del símbolo del sistema
+                string output = cmdProcess.StandardOutput.ReadToEnd();
+                Console.WriteLine(output);
+                DAL_Objects.sMsjErr = "exito al guardar, Sincronice el directorio de LDAP";
+            }
+            catch (Exception ex)
+            {
+
+                DAL_Objects.sMsjErr = ex.Message;
+                return;
+            }
+
+            //serversecret
+            try
+            {
+
+                Process cmdProcess = new Process();
+
+                // Configura las propiedades del proceso
+                cmdProcess.StartInfo.FileName = "cmd.exe";
+                cmdProcess.StartInfo.RedirectStandardInput = true;
+                cmdProcess.StartInfo.RedirectStandardOutput = true;
+                cmdProcess.StartInfo.CreateNoWindow = true;
+                cmdProcess.StartInfo.UseShellExecute = false;
+
+                // Inicia el proceso
+                cmdProcess.Start();
+
+                // Envía el comando al símbolo del sistema
+                cmdProcess.StandardInput.WriteLine("start \"SecretPhrase\"  \"C:\\multiotp\\multiotp.exe\" -config server-secret=" + DAL_Objects.sSecret);
+                cmdProcess.StandardInput.Flush();
+                cmdProcess.StandardInput.Close();
+
+                // Espera a que finalice el proceso
+                cmdProcess.WaitForExit();
+
+                // Lee la salida del símbolo del sistema
+                string output = cmdProcess.StandardOutput.ReadToEnd();
+                Console.WriteLine(output);
+                DAL_Objects.sMsjErr = "exito al guardar, Sincronice el directorio de LDAP";
+            }
+            catch (Exception ex)
+            {
+
+                DAL_Objects.sMsjErr = ex.Message;
             }
         }
 
@@ -352,6 +399,7 @@ namespace BLL_MultiOTP_Adm
 
                     if (lines[i].StartsWith("ldap_base_dn="))
                     {
+                        valores = null;
                         valores = lines[i].Split('=');
                         for (int j = 0; j < valores.Length; j++)
                         {
@@ -366,6 +414,7 @@ namespace BLL_MultiOTP_Adm
 
                     if (lines[i].StartsWith("ldap_bind_dn="))
                     {
+                        valores = null;
                         valores = lines[i].Split('=');
                         for (int j = 0; j < valores.Length; j++)
                         {
@@ -448,7 +497,8 @@ namespace BLL_MultiOTP_Adm
 
                 DAL.sMsjErr = "No se pudo cargar la configuracion "+ ex.Message;
             }
-           
+            
+
         }
   
     }

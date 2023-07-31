@@ -32,6 +32,7 @@ namespace UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.gpB_Menu = new System.Windows.Forms.GroupBox();
+            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.gpB_Datos = new System.Windows.Forms.GroupBox();
             this.pb_Load = new System.Windows.Forms.PictureBox();
             this.pb_Apply = new System.Windows.Forms.PictureBox();
@@ -96,8 +97,8 @@ namespace UI
             this.txt_CuentaCN = new System.Windows.Forms.TextBox();
             this.lbl_Identificador = new System.Windows.Forms.Label();
             this.tT_Message = new System.Windows.Forms.ToolTip(this.components);
-            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.gpB_Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.gpB_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).BeginInit();
@@ -115,7 +116,6 @@ namespace UI
             this.gp_SSL.SuspendLayout();
             this.gpB_PIN_Pass.SuspendLayout();
             this.gpB_Prefijo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // gpB_Menu
@@ -162,6 +162,16 @@ namespace UI
             this.gpB_Menu.TabIndex = 0;
             this.gpB_Menu.TabStop = false;
             this.gpB_Menu.Text = "Parametros Active Directory";
+            // 
+            // pb_Logo
+            // 
+            this.pb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pb_Logo.Image")));
+            this.pb_Logo.Location = new System.Drawing.Point(816, 100);
+            this.pb_Logo.Name = "pb_Logo";
+            this.pb_Logo.Size = new System.Drawing.Size(179, 200);
+            this.pb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Logo.TabIndex = 62;
+            this.pb_Logo.TabStop = false;
             // 
             // gpB_Datos
             // 
@@ -819,16 +829,6 @@ namespace UI
             this.lbl_Identificador.TabIndex = 9;
             this.lbl_Identificador.Text = "Identificador Cuenta CN =";
             // 
-            // pb_Logo
-            // 
-            this.pb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pb_Logo.Image")));
-            this.pb_Logo.Location = new System.Drawing.Point(816, 100);
-            this.pb_Logo.Name = "pb_Logo";
-            this.pb_Logo.Size = new System.Drawing.Size(179, 200);
-            this.pb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Logo.TabIndex = 62;
-            this.pb_Logo.TabStop = false;
-            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -843,6 +843,7 @@ namespace UI
             this.Load += new System.EventHandler(this.frm_Main_Load);
             this.gpB_Menu.ResumeLayout(false);
             this.gpB_Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.gpB_Datos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Load)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Apply)).EndInit();
@@ -868,7 +869,6 @@ namespace UI
             this.gpB_PIN_Pass.PerformLayout();
             this.gpB_Prefijo.ResumeLayout(false);
             this.gpB_Prefijo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }

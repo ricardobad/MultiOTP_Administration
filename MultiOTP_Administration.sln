@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.txt = README.txt
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MultiOTP", "MultiOTP\MultiOTP.vdproj", "{CA63FF7E-9EEE-412B-9C82-DC6FA351AEE2}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MultiOTP_Setup", "MultiOTP_Setup\MultiOTP_Setup.vdproj", "{93220F36-E7CC-42D1-B152-C66F6FDB3608}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,8 +34,8 @@ Global
 		{D9D1FE4D-6D3F-4FD7-AA52-A2ED2769228C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D1FE4D-6D3F-4FD7-AA52-A2ED2769228C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9D1FE4D-6D3F-4FD7-AA52-A2ED2769228C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA63FF7E-9EEE-412B-9C82-DC6FA351AEE2}.Debug|Any CPU.ActiveCfg = Debug
-		{CA63FF7E-9EEE-412B-9C82-DC6FA351AEE2}.Release|Any CPU.ActiveCfg = Release
+		{93220F36-E7CC-42D1-B152-C66F6FDB3608}.Debug|Any CPU.ActiveCfg = Debug
+		{93220F36-E7CC-42D1-B152-C66F6FDB3608}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
